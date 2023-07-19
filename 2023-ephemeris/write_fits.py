@@ -62,7 +62,7 @@ def write_new_LO1A(old_path, new_path, new_hdr0, new_data3, n_rows3):
     # CLOSE THE ORIGINAL FILE
     lo1a_fits.close()
 
-def write_new_VEGAS(old_path, new_path, new_hdr0, new_data6, n_rows6):
+def write_new_VEGAS(old_path, new_path, new_hdr0, new_data4, n_rows4, new_data6, n_rows6):
     # new_hdr0, new_data1, n_rows1, new_hdr4, new_data4, n_rows4, 
     # OPEN THE ORIGINAL FILE
     vegas_fits = open_original_fits(old_path)
@@ -71,7 +71,7 @@ def write_new_VEGAS(old_path, new_path, new_hdr0, new_data6, n_rows6):
     # (1) SPURS HDU'S DATA
     #vegas_fits = write_tbl(vegas_fits, 1, new_data1, n_rows1)
     # (4) SAMPLER HDU'S HEADER AND DATA
-    #vegas_fits = write_tbl(vegas_fits, 4, new_data4, n_rows4)
+    vegas_fits = write_tbl(vegas_fits, 4, new_data4, n_rows4)
     #vegas_fits = write_hdr(vegas_fits, 4, new_hdr4)
     # (6) DATA HDU'S DATA
     vegas_fits = write_tbl(vegas_fits, 6, new_data6, n_rows6)
