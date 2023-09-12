@@ -22,97 +22,97 @@ def fix_lo1a_vegas(datapath, session_code):
             'scan':[],
             'shift':[]
         }
-    for lpath_original in tqdm(lo1a_fnames):
+    for lpath_original in lo1a_fnames:
         lpath_short = lpath_original.split('/')[-1].replace(".fits", "")
         n_banks = len(glob.glob(f"{datapath}/{session_code}/VEGAS/{lpath_short}*.fits"))
-        for bi in tqdm(range(n_banks), leave=False):
+        for bi in range(n_banks):
             bank = banks[bi]
             lpath_modified = lpath_original.replace("original", "modified")
             vpath_modified = lpath_modified.replace("LO1A", "VEGAS").replace(".fits", f"{bank}.fits")
             vpath_original = vpath_modified.replace("modified", "original")
+            #try:
+            session = GBTSession(session_code, vpath_original)
+
+            vdata = session.VEGAS_DATA
+            vdata_shape = np.shape(vdata)
+
+            #if len(vdata) > 0:
+            #try:
+            vegas_new_hdr0 = {'PD_NAME':'23_EPHEM'}
+            spurchan = True
             try:
-                session = GBTSession(session_code, vpath_original)
-
-                vdata = session.VEGAS_DATA
-                vdata_shape = np.shape(vdata)
-
-                if len(vdata) > 0:
-                    try:
-                        vegas_new_hdr0 = {'PD_NAME':'23_EPHEM'}
-                        spurchan = True
-                        try:
-                            vegas_new_data4 = {
-                                'SPURCHAN':session.VEGAS_SPURCHAN
-                            }
-                            vegas_n_rows4 = np.shape(session.VEGAS_SPURCHAN)[0]
-                        except:
-                            spurchan = False
-                            print("Couldn't find SPURCHAN, but moving on. ")
-                        
-                        vegas_new_tbl6 = np.empty(np.shape(session.VEGAS_DATA)) # Needs filling
-                        vegas_n_rows6 = len(session.DMJD) # Good to go
-
-                        lo1a_new_hdr0 = {'PD_NAME':'23_EPHEM'}
-                        lo1a_new_data3 = {
-                            'DMJD':np.empty(vegas_n_rows6),
-                            'RA':np.empty(vegas_n_rows6),
-                            'DEC':np.empty(vegas_n_rows6),
-                            'LO1FREQ':np.empty(vegas_n_rows6),
-                            'VFRAME':np.empty(vegas_n_rows6),
-                            'RVSYS':np.empty(vegas_n_rows6)
-                        }
-                        lo1a_n_rows3 = len(session.DMJD)
-
-                        for i in tqdm(range(vegas_n_rows6), leave=False):
-                            # Calculate the correct VFRAME values
-                            vframe_i = calc_vframe(session.DMJD[i], session.RA[i], session.DEC[i], session.GO_VELDEF)
-
-                            # Calculate the actual VFRAME offset to apply 
-                            # given the offset that was originally applied
-                            vframe_off_i = calc_vframe_offset(session.LO1_DMJD, session.DMJD[i], session.LO1_VFRAME, vframe_i)
-
-                            # Calculate the frequency offset to shift all the data by
-                            f_offset = calc_f_offset(session.LO1_RESTFRQ, vframe_off_i)
-                            
-                            # Calculate the number of channels to shift by
-                            channel_shift_i = calc_channel_offset(f_offset, session.VEGAS_CHANBW[0])
-
-                            # Shift the spur channels by that much
-                            if spurchan: 
-                                for si in range(np.shape(session.VEGAS_SPURCHAN)[0]):
-                                    vegas_new_data4['SPURCHAN'][si] += channel_shift_i 
-                                    if vegas_new_data4['SPURCHAN'][si] < 0:
-                                        vegas_new_data4['SPURCHAN'][si] = -999
-                            
-                            # Calculate the LO1FREQ
-                            lo1freq_i = sky2lo(session.LO1_RESTFRQ, session.LO1_LOMULT, session.LO1_IFFREQ, vframe_i, session.LO1_SIDEBAND, 'rel', session.LO1_S_VEL)
-
-                            # Calculate the RVSYS
-                            rvsys_i = calc_rvsys(session.LO1_S_VEL, vframe_i, session.GO_VELDEF)
-
-                            # Add integration's shifted data to the new VEGAS table
-                            vegas_new_tbl6[i] = shift(session.VEGAS_DATA[i], [0,0,channel_shift_i], cval=np.NaN)
-                            # Add integration's information to the LO1A table
-                            lo1a_new_data3['DMJD'][i] = session.DMJD[i]
-                            lo1a_new_data3['RA'][i] = session.RA[i]
-                            lo1a_new_data3['DEC'][i] = session.DEC[i]
-                            lo1a_new_data3['LO1FREQ'][i] = lo1freq_i
-                            lo1a_new_data3['VFRAME'][i] = vframe_i
-                            lo1a_new_data3['RVSYS'][i] = rvsys_i
-
-                            dict_shifts['bank'].append(bank)
-                            dict_shifts['scan'].append(session.VEGAS_SCANNUM)
-                            dict_shifts['shift'].append(channel_shift_i)
-                        # Write a new VEGAS FITS file
-                        vegas_new_data6 = {'DATA':vegas_new_tbl6}
-                        write_new_VEGAS(session.VEGAS_FNAME, vpath_modified, vegas_new_hdr0, vegas_new_data4, vegas_n_rows4,vegas_new_data6, vegas_n_rows6, spur_bool=spurchan)
-
-                        # Write a new LO1A FITS file
-                        write_new_LO1A(lpath_original, lpath_modified, lo1a_new_hdr0, lo1a_new_data3, lo1a_n_rows3)
-                    except:
-                        print(f"Sorry, something went wrong with analyzing {vpath_modified}")
+                vegas_new_data4 = {
+                    'SPURCHAN':session.VEGAS_SPURCHAN
+                }
+                vegas_n_rows4 = np.shape(session.VEGAS_SPURCHAN)[0]
             except:
-                print(f"Sorry, something went wrong with opening {vpath_modified}")
+                spurchan = False
+                print("Couldn't find SPURCHAN, but moving on. ")
+            
+            vegas_new_tbl6 = np.empty(np.shape(session.VEGAS_DATA)) # Needs filling
+            vegas_n_rows6 = len(session.DMJD) # Good to go
+
+            lo1a_new_hdr0 = {'PD_NAME':'23_EPHEM'}
+            lo1a_new_data3 = {
+                'DMJD':np.empty(vegas_n_rows6),
+                'RA':np.empty(vegas_n_rows6),
+                'DEC':np.empty(vegas_n_rows6),
+                'LO1FREQ':np.empty(vegas_n_rows6),
+                'VFRAME':np.empty(vegas_n_rows6),
+                'RVSYS':np.empty(vegas_n_rows6)
+            }
+            lo1a_n_rows3 = len(session.DMJD)
+
+            for i in range(vegas_n_rows6):
+                # Calculate the correct VFRAME values
+                vframe_i = calc_vframe(session.DMJD[i], session.RA[i], session.DEC[i], session.GO_VELDEF)
+
+                # Calculate the actual VFRAME offset to apply 
+                # given the offset that was originally applied
+                vframe_off_i = calc_vframe_offset(session.LO1_DMJD, session.DMJD[i], session.LO1_VFRAME, vframe_i)
+
+                # Calculate the frequency offset to shift all the data by
+                f_offset = calc_f_offset(session.LO1_RESTFRQ, vframe_off_i)
+                
+                # Calculate the number of channels to shift by
+                channel_shift_i = calc_channel_offset(f_offset, session.VEGAS_CHANBW[0], session.LO1_SIDEBAND)
+
+                # Shift the spur channels by that much
+                if spurchan: 
+                    for si in range(np.shape(session.VEGAS_SPURCHAN)[0]):
+                        vegas_new_data4['SPURCHAN'][si] += channel_shift_i 
+                        if vegas_new_data4['SPURCHAN'][si] < 0:
+                            vegas_new_data4['SPURCHAN'][si] = -999
+                
+                # Calculate the LO1FREQ
+                lo1freq_i = sky2lo(session.LO1_RESTFRQ, session.LO1_LOMULT, session.LO1_IFFREQ, vframe_i, session.LO1_SIDEBAND, 'rel', session.LO1_S_VEL)
+
+                # Calculate the RVSYS
+                rvsys_i = calc_rvsys(session.LO1_S_VEL, vframe_i, session.GO_VELDEF)
+
+                # Add integration's shifted data to the new VEGAS table
+                vegas_new_tbl6[i] = shift(session.VEGAS_DATA[i], [0,0,channel_shift_i], cval=np.NaN)
+                # Add integration's information to the LO1A table
+                lo1a_new_data3['DMJD'][i] = session.DMJD[i]
+                lo1a_new_data3['RA'][i] = session.RA[i]
+                lo1a_new_data3['DEC'][i] = session.DEC[i]
+                lo1a_new_data3['LO1FREQ'][i] = lo1freq_i
+                lo1a_new_data3['VFRAME'][i] = vframe_i
+                lo1a_new_data3['RVSYS'][i] = rvsys_i
+
+                dict_shifts['bank'].append(bank)
+                dict_shifts['scan'].append(session.VEGAS_SCANNUM)
+                dict_shifts['shift'].append(channel_shift_i)
+            # Write a new VEGAS FITS file
+            vegas_new_data6 = {'DATA':vegas_new_tbl6}
+            write_new_VEGAS(session.VEGAS_FNAME, vpath_modified, vegas_new_hdr0, vegas_new_data4, vegas_n_rows4,vegas_new_data6, vegas_n_rows6, spur_bool=spurchan)
+
+            # Write a new LO1A FITS file
+            write_new_LO1A(lpath_original, lpath_modified, lo1a_new_hdr0, lo1a_new_data3, lo1a_n_rows3)
+            #except:
+            #    print(f"Sorry, something went wrong with analyzing {vpath_modified}")
+        #except:
+            #    print(f"Sorry, something went wrong with opening {vpath_modified}")
     df_shifts = pd.DataFrame(dict_shifts)
     df_shifts.to_csv(f'{datapath.replace("original", "modified")}/{session_code}/row-shifts.csv', index=False)
 
@@ -150,7 +150,7 @@ def fix_sdfits(session_code):
         data_vi.close()
 
     # GO THROUGH SDFITS FILES
-    for old_sd in tqdm(all_old_sdfits):
+    for old_sd in all_old_sdfits:
         try:
             old_fits = fits.open(old_sd)
             old_data = old_fits[1].data['DATA']
@@ -167,7 +167,7 @@ def fix_sdfits(session_code):
             old_dmjds = Time(old_fits[1].data['DATE-OBS']).mjd
             # GO THROUGH ALL THE SCANS
             old_sn = -10
-            for si in tqdm(range(len(old_scannums)), leave=False):
+            for si in range(len(old_scannums)):
                 sn = old_scannums[si]
                 # FIND THE RIGHT LO1A AND VEGAS FILES
                 lo1a_fits = fits.open(lo1a_scans[sn])

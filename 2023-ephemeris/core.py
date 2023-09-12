@@ -121,7 +121,7 @@ def calc_f_offset(f_0, vframe_offset, formula='rel'):
     return -f_offset
 
 
-def calc_channel_offset(f_offset, channel_bw):
+def calc_channel_offset(f_offset, channel_bw, sideband):
     '''
     Compute the final Doppler shift of the data
 
@@ -137,7 +137,10 @@ def calc_channel_offset(f_offset, channel_bw):
         channel_offset : int 
             the number of VEGAS channels to shift by, rounded to the nearest integer
     '''
-    channel_offset = int(np.round(-f_offset/channel_bw))
+    if sideband == "LOWER":
+        channel_offset = int(np.round(-f_offset/channel_bw))
+    else:
+        channel_offset = int(np.round(f_offset/channel_bw))
     return channel_offset
 
 def sky2lo(f_sky, lomult, iffreq, vframe, sideband, formula='rel', vel=0):

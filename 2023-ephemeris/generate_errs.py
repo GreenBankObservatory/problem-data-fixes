@@ -64,7 +64,7 @@ rvsys_err = np.abs(np.subtract(true_values['RVSYS'], rvsys))
 #rvsys_prop = calc_rvsys(true_values['VEL'], true_values['VFRAME_CALC'], true_values['VELDEF'])
 #rvsys_prop_err = np.abs(np.subtract(true_values['RVSYS'], rvsys_prop))
 
-fig, ax = plt.subplots(nrows=1, ncols=3, sharey=True)
+fig, ax = plt.subplots(nrows=1, ncols=3, sharey=True, figsize=(15, 5))
 
 cax = ax[0]
 cax.set_title("VFRAME")
@@ -97,7 +97,8 @@ cax.set_xlabel("| RVSYS Error | (m/s)")
 #cax.set_ylabel("Counts")
 '''
 plt.show()
-
+plt.savefig("/home/sandboxes/vcatlett/repos/github/problem-data-fixes/2023-ephemeris/EPHEMERIS_ERRORS.png")
+plt.close()
 #fig, ax = plt.subplots(nrows=2, ncols=3)
 #xs = ['DMJD', 'VEL', 'VFRAME']
 
