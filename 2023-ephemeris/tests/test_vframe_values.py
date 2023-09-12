@@ -3,7 +3,7 @@ import numpy as np
 from core import *
 
 def read_data():
-    true_values = pd.read_csv("./tests/data/true_values_new.csv")
+    true_values = pd.read_csv("./tests/local-data/true_values.csv")
     return true_values
 
 def get_vframe_error(veldef):

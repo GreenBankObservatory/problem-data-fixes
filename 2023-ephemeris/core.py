@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 import astropy.constants as const
 import astropy.units as u
 from astropy.time import Time
@@ -22,7 +23,7 @@ def create_obj_gbt():
     '''
     gbt_lat     =  38.433129 * u.deg
     gbt_lon     = -79.839839 * u.deg
-    gbt_height  =  8254.83   * u.m
+    gbt_height  =  854.83   * u.m
     gbt         = EarthLocation.from_geodetic(lon=gbt_lon, lat=gbt_lat, height=gbt_height)
     return gbt
 
@@ -136,7 +137,7 @@ def calc_channel_offset(f_offset, channel_bw):
         channel_offset : int 
             the number of VEGAS channels to shift by, rounded to the nearest integer
     '''
-    channel_offset = int(np.round(f_offset/channel_bw))
+    channel_offset = int(np.round(-f_offset/channel_bw))
     return channel_offset
 
 def sky2lo(f_sky, lomult, iffreq, vframe, sideband, formula='rel', vel=0):
@@ -172,7 +173,7 @@ def sky2lo(f_sky, lomult, iffreq, vframe, sideband, formula='rel', vel=0):
         lo1freq = np.nan
     return lo1freq
 
-def calc_rvsys(souvel, vframe):
+def calc_rvsys(v, vframe, veldef):
     '''
     Calculate RVSYS
     See page 6: https://www.gb.nrao.edu/GBT/MC/doc/dataproc/gbtLOFits/gbtLOFits.pdf
@@ -193,6 +194,20 @@ def calc_rvsys(souvel, vframe):
         lo1freq : float 
             the LO1 frequency corresponding to the sky frequency
     '''
-    rvsys = np.divide(np.add(souvel, vframe), 1 + np.multiply(souvel, vframe)/(const.c.value**2))
+    veldef_series = pd.Series(veldef)
+    opt_indx = veldef_series.str.startswith('VOPT')
+    rad_indx = veldef_series.str.startswith('VRAD')
+    rel_indx = veldef_series.str.startswith('VREL')
+
+    v_corr = np.ones(len(v))
+    v_corr[opt_indx] = np.divide(v[opt_indx], const.c.value) + 1
+    v_corr[rad_indx] = 1 - np.divide(v[rad_indx], const.c.value)
+    souvel_num = 1 + v_corr
+    souvel_denom = 1 + np.multiply(v_corr, v_corr)
+    souvel = np.multiply(v, np.divide(souvel_num, souvel_denom))
+
+    r_num = np.add(souvel, vframe)
+    r_denom = 1 + np.multiply(souvel, vframe)/(const.c.value**2)
+    rvsys = np.divide(r_num, r_denom)
     return rvsys
 

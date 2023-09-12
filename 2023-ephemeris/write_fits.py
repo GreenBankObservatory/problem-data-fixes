@@ -62,7 +62,7 @@ def write_new_LO1A(old_path, new_path, new_hdr0, new_data3, n_rows3):
     # CLOSE THE ORIGINAL FILE
     lo1a_fits.close()
 
-def write_new_VEGAS(old_path, new_path, new_hdr0, new_data4, n_rows4, new_data6, n_rows6):
+def write_new_VEGAS(old_path, new_path, new_hdr0, new_data4, n_rows4, new_data6, n_rows6, spur_bool):
     # new_hdr0, new_data1, n_rows1, new_hdr4, new_data4, n_rows4, 
     # OPEN THE ORIGINAL FILE
     vegas_fits = open_original_fits(old_path)
@@ -71,7 +71,12 @@ def write_new_VEGAS(old_path, new_path, new_hdr0, new_data4, n_rows4, new_data6,
     # (1) SPURS HDU'S DATA
     #vegas_fits = write_tbl(vegas_fits, 1, new_data1, n_rows1)
     # (4) SAMPLER HDU'S HEADER AND DATA
-    vegas_fits = write_tbl(vegas_fits, 4, new_data4, n_rows4)
+    if spur_bool: 
+        try:
+            vegas_fits = write_tbl(vegas_fits, 4, new_data4, n_rows4)
+        except:
+            pass
+            #print("Idk where the spur went.")
     #vegas_fits = write_hdr(vegas_fits, 4, new_hdr4)
     # (6) DATA HDU'S DATA
     vegas_fits = write_tbl(vegas_fits, 6, new_data6, n_rows6)
@@ -80,20 +85,15 @@ def write_new_VEGAS(old_path, new_path, new_hdr0, new_data4, n_rows4, new_data6,
     # CLOSE THE ORIGINAL FILE
     vegas_fits.close()
 
-def write_new_SDFITS(session):
-    fpath_original = f'/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/original/{session}/SDFITS/'
-    fpath_new = f'/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/modified/{session}/SDFITS/'
+def write_new_SDFITS(old_path, new_path, new_hdr0, new_data1, n_rows1):
     # OPEN THE ORIGINAL FILES
-    for spath in glob.glob(fpath_original + '*.fits'):
-        old_sdfits = open_original_fits(old_path)
+    old_sdfits = open_original_fits(old_path)
+
     # (0) PRIMARY HDU'S HEADER
     old_sdfits = write_hdr(old_sdfits, 0, new_hdr0)
     # (1) SINGLE DISH HDU'S DATA
-    old_data1 = old_sdfits[1].data['DATA']
-    old_indx1 = old_sdfits[1].data['SCAN'] == scannum
-    old_data1[old_indx1] = new_data1
-    old_sdfits = write_tbl(old_sdfits, 1, old_data1, n_rows1)
-    old_sdfits = write_hdr(old_sdfits, 1, new_hdr1)
+    old_sdfits = write_tbl(old_sdfits, 1, new_data1, n_rows1)
+    #old_sdfits = write_hdr(old_sdfits, 1, new_hdr1)
     # SAVE THE NEW FILE
     write_file(old_sdfits, new_path, overwrite_bool=True)
     # CLOSE THE ORIGINAL FILE

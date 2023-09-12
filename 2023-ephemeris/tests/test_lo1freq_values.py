@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from core import *
 
 def read_data(sideband, veldef_start):
-    true_values = pd.read_csv("./tests/data/true_values_new.csv")
+    true_values = pd.read_csv("./tests/local-data/true_values.csv")
     true_values = true_values[(true_values['SIDEBAND'] == sideband) & (true_values['VELDEF'].str.startswith(veldef_start))]
     return true_values
 
