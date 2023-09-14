@@ -2,6 +2,7 @@ import os, glob
 import numpy as np
 from ephemeris_fix import *
 from concurrent.futures import ThreadPoolExecutor
+from astropy.io import fits
 from rich.progress import (
     BarColumn,
     DownloadColumn,
@@ -78,16 +79,26 @@ progress_bar = Progress(
     refresh_per_second=1,
 )
 
-with progress_bar:
+#with progress_bar:
     # Create a task for the progress bar
-    overall_progress = progress_bar.add_task(f"[green]Ephemeris:")
+    #overall_progress = progress_bar.add_task(f"[green]Ephemeris:")
 
     # Define the processes
-    futures = []
-    executor = ThreadPoolExecutor(n_processes)
-    for avail_session in avail_sessions:
-        futures.append(executor.submit(fix_lo1a_vegas, data_path, avail_session))
+    #futures = []
+    #executor = ThreadPoolExecutor(n_processes)
+avail_sessions.sort()
+for avail_session in avail_sessions:
+    spath=f"/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/modified/{avail_session}/GO/*.fits"
+    #print(spath)
+    sds = glob.glob(spath)
+    if len(sds) > 1:
+        sds = sds[0]
+    #print(spath, sds)
+    data = fits.open(sds)
+    print(f"{avail_session}: {data[0].header['OBSERVER']}")
+    data.close()
+        #futures.append(executor.submit(fix_lo1a_vegas, data_path, avail_session))
 
     # Update the progress bar
-    while (n_finished := sum([future.done() for future in futures])) < len(futures):
-        progress_bar.update(overall_progress, completed=n_finished, total=len(futures))
+    #while (n_finished := sum([future.done() for future in futures])) < len(futures):
+    #    progress_bar.update(overall_progress, completed=n_finished, total=len(futures))
