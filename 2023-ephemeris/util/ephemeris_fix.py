@@ -127,11 +127,11 @@ def main_fix(progress, task_id, loadpath, savepath, session_name):
                 # [4] Calculate the VFRAME_OFFSET
                 vframe_off_i = calc_vframe_offset(session.LO1_VFRAME[i], vframe_i)
                 # [5] Calculate a frequency offset (F_OFFSET) from VFRAME
-                f_sky_i, f_offset_i = calc_f_offset(session.LO1_RESTFRQ, vframe_i, session.LO1_LO1FREQ, session.LO1_LOMULT, session.LO1_IFFREQ, session.LO1_SIDEBAND, formula='rel')
+                f_sky_i, f_offset_i = calc_f_offset(session.LO1_RESTFRQ, vframe_i, session.LO1_LO1FREQ[i], session.LO1_LOMULT, session.LO1_IFFREQ, session.LO1_SIDEBAND, formula='rel')
                 # [6] Calculate a channel shift from the frequency offset
                 channel_shift_i = calc_channel_offset(f_offset_i, session.VEGAS_CDELT1[0], session.LO1_SIDEBAND)
                 # [7] Calculate the new LO1 frequencies
-                lo1freq_i = sky2lo(f_sky_i, session.LO1_LOMULT, session.LO1_IFFREQ, vframe_i, session.LO1_SIDEBAND, 'rel', session.LO1_S_VEL)
+                lo1freq_i = sky2lo(f_sky_i, session.LO1_LOMULT, session.LO1_IFFREQ, session.LO1_SIDEBAND)
                 lo1a_dict[3]['data']['LO1FREQ'][i] = lo1freq_i # [7.3]
                 # [8] Calculate the new RVSYS values
                 rvsys_i = calc_rvsys(session.LO1_S_VEL, vframe_i, session.GO_VELDEF)
@@ -151,9 +151,11 @@ def main_fix(progress, task_id, loadpath, savepath, session_name):
                 vegas_dict[4]['data']['CRVAL1'][cri] = float(vegas_dict[4]['data']['CRVAL1'][cri] + f_offset_i)
                 vegas_dict[1]['data']['SPURCHAN'][cri] = int((cri*session.VEGAS_ADCSAMPF/64-vegas_dict[4]['data']['CRVAL1'][cri])/session.VEGAS_CDELT1[cri]+session.VEGAS_CRPIX1)
                 vegas_dict[1]['data']['SPURFREQ'][cri] = float(vegas_dict[1]['data']['SPURFREQ'][cri]+f_offset_i)
-            for vk in vegas_dict[0]['hdr'].keys():
+            
+            for vk in list(vegas_dict[0]['hdr']):
+                print(vk)
                 if vk.startswith('SUB'):
-                    vegas_dict[0]['hdr'][k] = float(vegas_dict[0]['hdr'][vk]+f_offset_i)
+                    vegas_dict[0]['hdr'][vk] = float(vegas_dict[0]['hdr'][vk]+f_offset_i)
             progress.update(task_id, advance=1)
 
             # Writing the new VEGAS files

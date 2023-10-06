@@ -136,6 +136,8 @@ def run_fix(loadpath, savepath, sessions_to_fix):
             task_id = progress_bar.add_task(f"[cyan]{session}", start=False, transient=True)
             future = executor.submit(main_fix, progress_bar, task_id, loadpath, savepath, session)
             fix_processes.append(future)
+            if future.result is not None:
+                print(future.result())
         while (n_finished := sum([fp.done() for fp in fix_processes])) < len(fix_processes):
             progress_bar.update(overall_progress, completed=n_finished, total=len(fix_processes))
 
