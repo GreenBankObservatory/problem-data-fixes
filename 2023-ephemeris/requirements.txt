@@ -12,8 +12,10 @@ ipython==8.14.0
 jedi==0.18.2
 jplephem==2.18
 kiwisolver==1.4.4
+markdown-it-py==3.0.0
 matplotlib==3.7.2
 matplotlib-inline==0.1.6
+mdurl==0.1.2
 numpy==1.25.1
 packaging==23.1
 pandas==2.0.3
@@ -32,6 +34,7 @@ pytest==7.4.0
 python-dateutil==2.8.2
 pytz==2023.3
 PyYAML==6.0.1
+rich==13.6.0
 scipy==1.11.1
 six==1.16.0
 stack-data==0.6.2
