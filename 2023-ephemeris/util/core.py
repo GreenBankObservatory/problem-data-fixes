@@ -93,7 +93,7 @@ def calc_vframe_offset(vframe_og, vframe_new):
     vframe_offset = np.array(vframe_new) - vframe_og    # [4.1]
     return vframe_offset
 
-def calc_f_offset(f_0, vframe_offset, formula='rel'):
+def calc_f_offset(f_0, vframe, lo1_freq_og, lo_mult, iffreq, sideband, formula='rel'):
     '''
     Compute the final Doppler shift of the data
 
@@ -101,26 +101,27 @@ def calc_f_offset(f_0, vframe_offset, formula='rel'):
     ----------
         f_0 : float 
             the rest frequency for which to shift
-        vframe_offset  : float
-            the leftover velocity of the reference frame that needs to be added
+        vframe  : float
+            the new velocity of the reference frame
     
     Returns
     ----------
         f_offset : float 
-            the Doppler shifted emission frequency (using the selected velocity definition) in the selected rest frame (Hz)
+            the Doppler-shifted emission frequency (using the selected velocity definition) in the selected rest frame (Hz)
     '''
     c = const.c.value
-    
+    f_offset_og = lo2sky(lo1_freq_og, lo_mult, iffreq, sideband)
     # [5.2.1]
     if formula == 'rel':
-        f_offset = f_0 * np.sqrt(np.divide((c-vframe_offset),(c+vframe_offset))) - f_0
+        f_new = f_0 * np.sqrt(np.divide((c-vframe),(c+vframe)))
     # [5.2.2]
     elif formula == 'opt':
-        f_offset = f_0 / (1 + vframe_offset/c) - f_0
+        f_new = f_0 / (1 + vframe/c)
     # [5.2.3]
     elif formula == 'rad':
-        f_offset = f_0 * (1 - vframe_offset/c) - f_0
-    return -f_offset
+        f_new = f_0 * (1 - vframe/c)
+    f_offset = f_new - f_offset_og
+    return f_new, f_offset
 
 
 def calc_channel_offset(f_offset, channel_bw, sideband):
@@ -145,7 +146,7 @@ def calc_channel_offset(f_offset, channel_bw, sideband):
         channel_offset = int(np.round(f_offset/channel_bw))
     return channel_offset
 
-def sky2lo(f_sky, lomult, iffreq, vframe, sideband, formula='rel', vel=0):
+def sky2lo(f_sky, lomult, iffreq, sideband):
     '''
     Convert LO1FREQ to a sky frequency
 
@@ -165,10 +166,6 @@ def sky2lo(f_sky, lomult, iffreq, vframe, sideband, formula='rel', vel=0):
         lo1freq : float 
             the LO1 frequency corresponding to the sky frequency
     '''
-    source_vel_f_off = calc_f_offset(f_sky, vel, formula) 
-    f_sky -= source_vel_f_off
-    source_vel_f_off = calc_f_offset(f_sky, vframe, 'rel') 
-    f_sky -= source_vel_f_off
     if sideband == "LOWER":
         lo1freq = np.divide(np.add(iffreq, f_sky), lomult)
     elif sideband == "UPPER":
@@ -177,6 +174,35 @@ def sky2lo(f_sky, lomult, iffreq, vframe, sideband, formula='rel', vel=0):
         print(f"sky2lo: {sideband} is not a valid sideband. Value must be \"LOWER\" or \"UPPER\"")
         lo1freq = np.nan
     return lo1freq
+
+def lo2sky(lo1freq, lomult, iffreq, sideband):
+    '''
+    Convert LO1FREQ to a sky frequency
+
+    Parameters
+    ----------
+        lo1freq : float 
+            the LO1 frequency
+        lomult : np.array (3,)
+            the LO multiplier
+        iffreq : float
+            the IF frequency
+        sideband : str
+            the sideband ("lower" or "upper")
+    
+    Returns
+    ----------
+        f_sky : float 
+            the sky frequency
+    '''
+    if sideband == "LOWER":
+        f_sky = np.subtract(np.multiply(lo1freq, lomult), iffreq)
+    elif sideband == "UPPER":
+        f_sky = np.add(np.multiply(lo1freq, lomult), iffreq)
+    else:
+        print(f"sky2lo: {sideband} is not a valid sideband. Value must be \"LOWER\" or \"UPPER\"")
+        f_sky = np.nan
+    return f_sky
 
 def calc_rvsys(v, vframe, veldef):
     '''

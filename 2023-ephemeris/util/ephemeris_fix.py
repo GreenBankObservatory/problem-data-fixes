@@ -126,12 +126,12 @@ def main_fix(progress, task_id, loadpath, savepath, session_name):
                 lo1a_dict[3]['data']['VFRAME'][i] = vframe_i # [4.7]
                 # [4] Calculate the VFRAME_OFFSET
                 vframe_off_i = calc_vframe_offset(session.LO1_VFRAME[i], vframe_i)
-                # [5] Calculate a frequency offset (F_OFFSET) from VFRAME_OFFSET
-                f_offset_i = calc_f_offset(session.LO1_RESTFRQ, vframe_off_i)
+                # [5] Calculate a frequency offset (F_OFFSET) from VFRAME
+                f_sky_i, f_offset_i = calc_f_offset(session.LO1_RESTFRQ, vframe_i, session.LO1_LO1FREQ, session.LO1_LOMULT, session.LO1_IFFREQ, session.LO1_SIDEBAND, formula='rel')
                 # [6] Calculate a channel shift from the frequency offset
                 channel_shift_i = calc_channel_offset(f_offset_i, session.VEGAS_CDELT1[0], session.LO1_SIDEBAND)
                 # [7] Calculate the new LO1 frequencies
-                lo1freq_i = sky2lo(session.LO1_RESTFRQ, session.LO1_LOMULT, session.LO1_IFFREQ, vframe_i, session.LO1_SIDEBAND, 'rel', session.LO1_S_VEL)
+                lo1freq_i = sky2lo(f_sky_i, session.LO1_LOMULT, session.LO1_IFFREQ, vframe_i, session.LO1_SIDEBAND, 'rel', session.LO1_S_VEL)
                 lo1a_dict[3]['data']['LO1FREQ'][i] = lo1freq_i # [7.3]
                 # [8] Calculate the new RVSYS values
                 rvsys_i = calc_rvsys(session.LO1_S_VEL, vframe_i, session.GO_VELDEF)
