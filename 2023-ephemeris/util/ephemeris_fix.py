@@ -131,7 +131,7 @@ def main_fix(progress, task_id, loadpath, savepath, session_name):
                 # [6] Calculate a channel shift from the frequency offset
                 channel_shift_i = calc_channel_offset(f_offset_i, session.VEGAS_CDELT1[0], session.LO1_SIDEBAND)
                 # [7] Calculate the new LO1 frequencies
-                lo1freq_i = sky2lo(f_sky_i, session.LO1_LOMULT, session.LO1_IFFREQ, session.LO1_SIDEBAND)
+                lo1freq_i = sky2lo(f_sky_i, session.LO1_LOMULT, session.LO1_LOOFFSET, session.LO1_IFFREQ, session.LO1_SIDEBAND)
                 lo1a_dict[3]['data']['LO1FREQ'][i] = lo1freq_i # [7.3]
                 # [8] Calculate the new RVSYS values
                 rvsys_i = calc_rvsys(session.LO1_S_VEL, vframe_i, session.GO_VELDEF)
