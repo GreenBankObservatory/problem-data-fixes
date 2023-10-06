@@ -1,4 +1,4 @@
-from core import *
+from core.core import *
 from load_session import *
 from write_fits import *
 import os

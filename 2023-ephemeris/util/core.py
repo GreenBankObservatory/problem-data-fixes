@@ -4,7 +4,8 @@ import astropy.constants as const
 import astropy.units as u
 from astropy.time import Time
 from astropy.coordinates import EarthLocation, SkyCoord, solar_system_ephemeris, get_body_barycentric_posvel, CartesianRepresentation, UnitSphericalRepresentation
-from scipy.interpolate import interp1d
+
+# Use the JPL DE430 ephemeris 
 solar_system_ephemeris.set('jpl') 
 
 def create_obj_gbt():
@@ -21,18 +22,20 @@ def create_obj_gbt():
         gbt : EarthLocation 
             astropy EarthLocation for the GBT
     '''
-    gbt_lat     =  38.433129 * u.deg
-    gbt_lon     = -79.839839 * u.deg
-    gbt_height  =  854.83   * u.m
+    gbt_lat     =  38.433129 * u.deg    # [1.1]
+    gbt_lon     = -79.839839 * u.deg    # [1.2]
+    gbt_height  =  854.83   * u.m       # [1.3]
     gbt         = EarthLocation.from_geodetic(lon=gbt_lon, lat=gbt_lat, height=gbt_height)
     return gbt
 
-def calc_vframe(t_mjd, RA, Dec, ref_frame):
+def calc_vframe(gbt, t_mjd, RA, Dec, ref_frame):
     '''
     Calculate the VFRAME for a given integration
 
     Parameters
     ----------
+        gbt : astropy.coordinates.EarthLocation
+            An astropy object representing the GBT on Earth
         t_mjd : float or list
             the time(s) for which to calculate VFRAME
         RA  : float or list 
@@ -47,38 +50,36 @@ def calc_vframe(t_mjd, RA, Dec, ref_frame):
         frame_vels : float or list 
             the frame velocities (m/s) for each t_mjd
     '''
-    t = Time(t_mjd, format='mjd', scale='utc')
-    gbt = create_obj_gbt()
-    source_sph = SkyCoord(RA, Dec, frame='icrs', unit='deg')#, radial_velocity=df_bar_b['velocity'] * u.km / u.s)
-    source_cart = source_sph.icrs.represent_as(UnitSphericalRepresentation).represent_as(CartesianRepresentation)
+    t = Time(t_mjd, format='mjd', scale='utc')                                                                      # [3.1]
+    source_sph = SkyCoord(RA, Dec, frame='icrs', unit='deg')                                                        # [3.2]
+    source_cart = source_sph.icrs.represent_as(UnitSphericalRepresentation).represent_as(CartesianRepresentation)   # [3.3]
     
+    # [3.4] 
     if ref_frame[-3:] == 'BAR':
-        epos, evel = get_body_barycentric_posvel('earth', t)
-        gbt_pos, gbt_vel = gbt.get_gcrs_posvel(t)
-        bvel_bg = (evel + gbt_vel) *1000 / (24*60*60) * u.d * u.m / u.s / u.km
-        frame_vels = bvel_bg.dot(-source_cart)
+        epos, evel = get_body_barycentric_posvel('earth', t)                    # [3.4.1]
+        gbt_pos, gbt_vel = gbt.get_gcrs_posvel(t)                               # [3.4.2]
+        bvel_bg = (evel + gbt_vel) *1000 / (24*60*60) * u.d * u.m / u.s / u.km  # [3.4.3]
+        frame_vels = bvel_bg.dot(-source_cart)                                  # [3.4.4]
+    # [3.5]
     elif ref_frame[-3:] == 'HEL':
-        frame_vels = -source_sph.radial_velocity_correction('heliocentric', obstime=t, location=gbt) * 1000 / (24*60*60) * u.d * u.m / u.s / u.km
+        frame_vels = -source_sph.radial_velocity_correction('heliocentric', obstime=t, location=gbt) * 1000 / (24*60*60) * u.d * u.m / u.s / u.km # [3.5.4]
+    # [3.6]
     elif ref_frame[-3:] == 'LSR':
-        lsrk_pos = SkyCoord(ra="18:03:50.24", dec="+30:00:16.8", unit=(u.hourangle, u.deg), frame='icrs', radial_velocity=20*u.km/u.s)
-        epos, evel = get_body_barycentric_posvel('earth', t)
-        gbt_pos, gbt_vel = gbt.get_gcrs_posvel(t)
-        bvel_bg = (evel + gbt_vel + lsrk_pos.velocity) *1000 / (24*60*60) * u.d * u.m / u.s / u.km
-        frame_vels = bvel_bg.dot(-source_cart)
+        epos, evel = get_body_barycentric_posvel('earth', t)                                                                            # [3.6.1]
+        gbt_pos, gbt_vel = gbt.get_gcrs_posvel(t)                                                                                       # [3.6.1]
+        lsrk_pos = SkyCoord(ra="18:03:50.24", dec="+30:00:16.8", unit=(u.hourangle, u.deg), frame='icrs', radial_velocity=20*u.km/u.s)  # [3.6.2]
+        bvel_bg = (evel + gbt_vel + lsrk_pos.velocity) *1000 / (24*60*60) * u.d * u.m / u.s / u.km                                      # [3.6.3]
+        frame_vels = bvel_bg.dot(-source_cart)                                                                                          # [3.6.4]
     else:
         print("Imvalid frame. Must be *-BAR, *-HEL, or *-LSR")
     return frame_vels.value
 
-def calc_vframe_offset(DMJD_og, DMJD_new, vframe_og, vframe_new):
+def calc_vframe_offset(vframe_og, vframe_new):
     '''
     Calculate how much VFRAME needs to shift based on true value and what was applied
 
     Parameters
     ----------
-        DMJD_og : float or list
-            the DMJD of the original VFRAME(s)
-        DMJD_new  : float or list 
-            the DMJD of each VEGAS integration 
         vframe_og : float or list 
             the VFRAME from the original observation 
         vframe_new : float or list
@@ -89,7 +90,7 @@ def calc_vframe_offset(DMJD_og, DMJD_new, vframe_og, vframe_new):
         vframe_offset : numpy array
             the VFRAME offsets to use to shift VEGAS data
     '''
-    vframe_offset = np.array(vframe_new) - vframe_og
+    vframe_offset = np.array(vframe_new) - vframe_og    # [4.1]
     return vframe_offset
 
 def calc_f_offset(f_0, vframe_offset, formula='rel'):
@@ -108,14 +109,15 @@ def calc_f_offset(f_0, vframe_offset, formula='rel'):
         f_offset : float 
             the Doppler shifted emission frequency (using the selected velocity definition) in the selected rest frame (Hz)
     '''
-    #f_0 = f_0 * u.Hz
     c = const.c.value
-    #vframe_offset = vframe_offset * u.m / u.s
+    
+    # [5.2.1]
     if formula == 'rel':
-        # swapped minus and plus
         f_offset = f_0 * np.sqrt(np.divide((c-vframe_offset),(c+vframe_offset))) - f_0
+    # [5.2.2]
     elif formula == 'opt':
         f_offset = f_0 / (1 + vframe_offset/c) - f_0
+    # [5.2.3]
     elif formula == 'rad':
         f_offset = f_0 * (1 - vframe_offset/c) - f_0
     return -f_offset

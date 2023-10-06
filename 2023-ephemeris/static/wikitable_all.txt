@@ -1,0 +1,975 @@
+| Project | Session(s) | Affected? | Backend(s) | VELDEF | Observer | Project Friend | Approved? | Approved By | Comments |
+| AG22A002 | 1-5 | Yes |  |  |  | - | %X% | - | - |
+| AGBT20A_322 | 30-34 | Yes |  |  |  | - | %X% | - | - |
+| AGBT21B_024 | 26-34 | Yes |  |  |  | - | %X% | - | - |
+| AGBT21B_205 | 18-19 | Yes |  |  |  | - | %X% | - | - |
+| AGBT21B_210 | 128-150 | Yes |  |  |  | - | %X% | - | - |
+| AGBT21B_261 | 21-39 | Yes |  |  |  | - | %X% | - | - |
+| AGBT21B_277 | 18-21 | Yes |  |  |  | - | %X% | - | - |
+| AGBT21B_316 | 14-36 | Yes | VEGAS, DCR | VRAD-LSR, VRAD-TOP | Harshal Gupta | - | %X% | - | - |
+| AGBT21B_372 | 10-17 | No | VEGAS | VRAD-TOP | Zhenzhao Tao | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT21B_996 | 131-328 | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT21B_999 | 5 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_067 | 4 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_110 | 1-8 | Yes | VEGAS, DCR | VRAD-LSR, VRAD-TOP | Steven Federman | - | %X% | - | - |
+| AGBT22A_118 | 2-6 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_139 | 4 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_155 | 1-3 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_219 | 1 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_269 | 2-3 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_287 | 9-14 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_325 | 10-15 | Yes | VEGAS, DCR, CCB | VOPT-BAR, VRAD-TOP | Yuanze Luo, David Stark | - | %X% | - | - |
+| AGBT22A_339 | 24-34 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_354 | 5-6 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_358 | 5-17 | No | VEGAS, DCR | VRAD-TOP | Nina Gusinskaia | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT22A_360 | 5-7, 9-12 | No | VEGAS | VRAD-TOP | Tim Bastian | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT22A_398 | 1-8 | Yes | VEGAS, DCR | VRAD-LSR, VRAD-TOP | Prasanta Gorai | - | %X% | - | - |
+| AGBT22A_399 | 1-4 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_404 | 1-2 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_430 | 7-28 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_433 | 9 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_434 | 32-70 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_435 | 6-8 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_436 | 37-58, 60-61, 63-77 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_437 | 14-35, 37-91 | Yes | DCR, VEGAS | VRAD-TOP, VELO-LSR | OPERATOR | - | %X% | - | - |
+| AGBT22A_459 | 10-15 | No | MBA15 | VRAD-TOP | Simon Dicker | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (not VEGAS) |
+| AGBT22A_466 | 1-2 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_470 | 3 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_475 | 1-2 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_482 | 1-11 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_483 | 1-5 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_484 | 1-2 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_486 | 1-2 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_492 | 1 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_493 | 1-10 | No | VEGAS | VRAD-TOP | Paul Ray | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT22A_494 | 1-8 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_502 | 1-3 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_504 | 1-10 | Yes | VEGAS, DCR, CCB | VRAD-LSR, VRAD-TOP | Anika Schmiedeke | - | %X% | - | - |
+| AGBT22A_899 | 5-13 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_995 | 1-9 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_997 | 2-10 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22A_999 | 23-40, 42-51 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_011 | 1-5 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_020 | 1-2 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_030 | 1-8 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_040 | 1-5 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_049 | 1-9 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_052 | 1 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_060 | 0-3 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_064 | 1-25 | Yes | VEGAS, DCR | VOPT-BAR, VRAD-TOP | Mike Jones | - | %X% | - | - |
+| AGBT22B_065 | 1-58 | Yes | VEGAS, DCR | VOPT-LSR, VRAD-TOP | Karen ONeil | - | %X% | - | - |
+| AGBT22B_068 | 1-5 | No | MBA15 | VRAD-TOP | Charles Romero | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (not VEGAS) |
+| AGBT22B_085 | 1 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_104 | 1-13 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_112 | 1-7 | No | VEGAS | VRAD-TOP | Julia Deneva | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT22B_143 | 1-5 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_162 | 1-2 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_163 | 1-2 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_170 | 1-3 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_180 | 1-6 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_191 | 1-2 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_200 | 1-3 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_204 | 1-26 | Yes | VEGAS, DCR | VRAD-LSR, VRAD-TOP | Jay Lockman | - | %X% | - | - |
+| AGBT22B_209 | 1 | No | VEGAS | VRAD-TOP | Jean-Luc Margot | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT22B_213 | 1-10 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_215 | 1-4 | No | VEGAS | VRAD-TOP | Scott Ransom, Emmanuel Fonseca | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT22B_226 | 1-4 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_228 | 1-3 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_231 | 1-19 | No | VEGAS | VRAD-TOP | Paulo Freire, Maura McLaughlin, Ingrid Stairs, OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT22B_234 | 1-12-100 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_242 | 1-4 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_248 | 1-4 | Yes | DCR, VEGAS | VRAD-TOP, VRAD-BAR | Yiqing Song | - | %X% | - | - |
+| AGBT22B_256 | 1-11 | No | VEGAS | VRAD-TOP | Paulo Freire | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT22B_266 | 1-5 | No | VEGAS | VRAD-TOP | Vladislav Kondratiev | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT22B_269 | 1-4, 6-19 | No | DCR, VEGAS | VRAD-TOP | James McKee | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT22B_270 | 1-8 | No | VEGAS, DCR | VRAD-TOP | Deven Bhakta | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT22B_283 | 1-3 | No | VEGAS, DCR | VRAD-TOP | Duncan Lorimer, Joseph Kania | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT22B_285 | 1-5 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_287 | 1-6 | Yes | VEGAS, DCR | VRAD-LSR, VRAD-TOP | Harshal Gupta | - | %X% | - | - |
+| AGBT22B_289 | 1-8 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_290 | 1-12 | No | VEGAS | VRAD-TOP | Ryan Lynch | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT22B_298 | 1-8 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_309 | 1 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_315 | 1-5 | No | VEGAS | VRAD-TOP | Ryan Lynch, Lei Zhang | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT22B_320 | 1-3 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_322 | 1-2 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_323 | 1-2 | No | VEGAS, DCR | VRAD-TOP | Matt Lebofsky, Steve Croft | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT22B_324 | 0-2 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_326 | 1-8 | No | VEGAS | VRAD-TOP | Moaz Abdelmaguid | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT22B_330 | 1-20 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_344 | 1-6 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_346 | 1-22 | No | VEGAS | VOPT-TOP | Nissim Kanekar | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT22B_347 | 1 | Yes | DCR, VEGAS | VRAD-TOP, VRAD-LSR | Brett McGuire | - | %X% | - | - |
+| AGBT22B_348 | 1 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_353 | 1-2 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_354 | 1-13, 15-29 | Yes | VEGAS, DCR | VRAD-LSR, VRAD-TOP | Paul Fallon | - | %X% | - | - |
+| AGBT22B_358 | 1-7 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_359 | 1-16 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_360 | 1-3 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_996 | 1-6 | No | Radar | VRAD-TOP | Evan Smith | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (not VEGAS) |
+| AGBT22B_997 | 1-2 | Yes |  |  |  | - | %X% | - | - |
+| AGBT22B_999 | 1-47 | No | DCR, VEGAS | VRAD-TOP | Dave MacMahon, OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT23A_028 | 1-3 | No | MBA15 | VRAD-TOP | Julia Robe, Tony Mroczkowski | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (not VEGAS) |
+| AGBT23A_042 | 1-2 | Yes |  |  |  | - | %X% | - | - |
+| AGBT23A_080 | 1-3 | Yes | DCR, VEGAS | VRAD-TOP, VOPT-BAR | Mike Jones | - | %X% | - | - |
+| AGBT23A_084 | 1-10 | Yes | VEGAS, DCR | VOPT-BAR, VRAD-TOP | Mike Jones | - | %X% | - | - |
+| AGBT23A_132 | 1-6 | Yes |  |  |  | - | %X% | - | - |
+| AGBT23A_142 | 1-4 | No | DCR, VEGAS | VRAD-TOP | Karen Perez | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT23A_155 | 1 | Yes |  |  |  | - | %X% | - | - |
+| AGBT23A_160 | 1-2 | No | VEGAS | VRAD-TOP | Andrew Cameron | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT23A_185 | 1-7 | Yes | VEGAS, DCR | VRAD-LSR, VRAD-TOP | Ningyu Tang | - | %X% | - | - |
+| AGBT23A_245 | 1-3 | Yes |  |  |  | - | %X% | - | - |
+| AGBT23A_246 | 1-13 | Yes | VEGAS, DCR | VRAD-LSR, VRAD-TOP | Gan Luo, lingrui, lin | - | %X% | - | - |
+| AGBT23A_286 | 1-9 | Yes | VEGAS, DCR | VOPT-HEL, VRAD-TOP | Matthew Route | - | %X% | - | - |
+| AGBT23A_288 | 1-4 | Yes | DCR_AF, VEGAS, DCR | VRAD-TOP, VRAD-LSR | simon, coude, Simon Coude | - | %X% | - | - |
+| AGBT23A_295 | 1-2 | Yes |  |  |  | - | %X% | - | - |
+| AGBT23A_301 | 1-2 | No | VEGAS | VRAD-TOP | Julia Deneva | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT23A_307 | 2-5 | No | DCR, VEGAS | VRAD-TOP | Nina Gusinskaia, Patrick ONeill | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT23A_318 | 1-8 | No | DCR, VEGAS | VRAD-TOP | Georgia Lowes | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT23A_332 | 1 | Yes |  |  |  | - | %X% | - | - |
+| AGBT23A_344 | 3-46 | Yes | DCR, VEGAS | VRAD-TOP, VRAD-LSR | April Horton, Jo Vazquez | - | %X% | - | - |
+| AGBT23A_364 | 1-8 | No | VEGAS | VRAD-TOP | tyler, cohen, Paul Demorest | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT23A_365 | 1-7 | No | VEGAS | VRAD-TOP | Reshma Anna Thomas | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT23A_376 | 1 | Yes |  |  |  | - | %X% | - | - |
+| AGBT23A_387 | 1-4 | Yes | VEGAS, DCR_AF | VOPT-BAR, VRAD-TOP | Abdulla Alhosani | - | %X% | - | - |
+| AGBT23A_401 | 1 | No | VEGAS, DCR, DCR_AF | VRAD-TOP | Larry Morgan | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT23A_408 | 1 | Yes |  |  |  | - | %X% | - | - |
+| AGBT23A_418 | 1-3 | Yes |  |  |  | - | %X% | - | - |
+| AGBT23A_419 | 1-4 | Yes |  |  |  | - | %X% | - | - |
+| AGBT23A_420 | 1-2 | Yes |  |  |  | - | %X% | - | - |
+| AGBT23A_432 | 1-3 | Yes |  |  |  | - | %X% | - | - |
+| AGBT23A_997 | 1 | Yes |  |  |  | - | %X% | - | - |
+| AGBT23A_999 | 1-33 | No | VEGAS, DCR | VRAD-TOP | OPERATOR, Dave MacMahon, Bryan Brzycki | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGBT23B_032 | 1-5 | Yes |  |  |  | - | %X% | - | - |
+| AGBT23B_046 | 1-3 | Yes |  |  |  | - | %X% | - | - |
+| AGBT23B_111 | 1-2 | Yes |  |  |  | - | %X% | - | - |
+| AGBT23B_204 | 1-5 | Yes |  |  |  | - | %X% | - | - |
+| AGBT23B_227 | N/A | Yes |  |  |  | - | %X% | - | - |
+| AGBT23B_998 | 1-5 | Yes |  |  |  | - | %X% | - | - |
+| AGLST141019 | 61-63 | Yes |  |  |  | - | %X% | - | - |
+| AGLST151135 | 1-19 | No | VEGAS | VRAD-TOP | Megan DeCesar, Julia Deneva | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| AGMV22B_100 | 1-2 | No | VLBA_DAR, DCR, CCB | VRAD-TOP | Pedro Salas, OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (not VEGAS) |
+| AGMV22B_249 | 1 | No | DCR, VLBA_DAR | VRAD-TOP | Brenne Gregory | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (not VEGAS) |
+| AGMV23A_031 | 1 | No | VLBA_DAR, DCR | VRAD-TOP | Brenne Gregory, Evan Smith | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (not VEGAS) |
+| AGMV23A_033 | 1 | No | DCR, VLBA_DAR, CCB | VRAD-TOP | Brenne Gregory | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (not VEGAS) |
+| AGMVA23A_031 | 0-1 | No | VLBA_DAR, DCR | VRAD-TOP | Evan Smith | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (not VEGAS) |
+| AGMVA23A_033 | 1 | No | DCR, VLBA_DAR | VRAD-TOP | Brenne Gregory, Evan Smith | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (not VEGAS) |
+| AVLB22A_393 | 1-4 | Yes |  |  |  | - | %X% | - | - |
+| AVLB22A_489 | 1 | Yes |  |  |  | - | %X% | - | - |
+| AVLB22B_074 | 1 | Yes |  |  |  | - | %X% | - | - |
+| AVLB22B_148 | 1-2 | Yes |  |  |  | - | %X% | - | - |
+| AVLB23A_078 | 1 | No | DCR, VLBA_DAR | VRAD-TOP | Pedro Salas | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (not VEGAS) |
+| AVLB23A_118 | 1 | No | VLBA_DAR, DCR, DCR_AF | VRAD-TOP | Brenne Gregory, OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (not VEGAS) |
+| AVLB23A_316 | 1 | No | DCR, VLBA_DAR, CCB | VRAD-TOP | Pedro Salas, OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (not VEGAS) |
+| AVLBA22A_393 | 1-5 | Yes |  |  |  | - | %X% | - | - |
+| AVLBA23A_078 | 1 | No | VLBA_DAR, DCR | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (not VEGAS) |
+| CV_COPY_OK | N/A | Yes |  |  |  | - | %X% | - | - |
+| JAPI | 0-115, 117-118 | Yes |  |  |  | - | %X% | - | - |
+| JMAINT | N/A | Yes |  |  |  | - | %X% | - | - |
+| JMain02_02 | 4 | Yes |  |  |  | - | %X% | - | - |
+| JSDW_Jan4 | 2 | Yes |  |  |  | - | %X% | - | - |
+| JUNK | N/A | No | DCR | VRAD-TOP | Kathlyn Purcell | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (not VEGAS) |
+| Junk | N/A | Yes |  |  |  | - | %X% | - | - |
+| SDW_Novem24 | N/A | Yes |  |  |  | - | %X% | - | - |
+| Scanlist-cleaner | N/A | Yes |  |  |  | - | %X% | - | - |
+| Scanlist-cleaner~ | N/A | Yes |  |  |  | - | %X% | - | - |
+| TBTL_LARRY | 4-10 | Yes |  |  |  | - | %X% | - | - |
+| TCYCSPEC | 230314-230317-230321 | Yes | VEGAS | VRAD-TOP, VRAD-LSR, VOPT-LSR | Paul Marganian | - | %X% | - | - |
+| TGBT15A_901 | 139-141 | Yes | VEGAS, DCR | VRAD-LSR, VRAD-TOP | David Frayer | - | %X% | - | - |
+| TGBT21B_504 | 3-4 | Yes |  |  |  | - | %X% | - | - |
+| TGBT21B_508 | 13-14 | Yes |  |  |  | - | %X% | - | - |
+| TGBT22A_504 | 1 | Yes |  |  |  | - | %X% | - | - |
+| TGBT22A_505 | 1 | Yes |  |  |  | - | %X% | - | - |
+| TGBT22A_602 | 1-10 | Yes |  |  |  | - | %X% | - | - |
+| TGBT22A_603 | 1-10 | Yes |  |  |  | - | %X% | - | - |
+| TGBT22A_605 | 1 | Yes |  |  |  | - | %X% | - | - |
+| TGBT22A_606 | 1-3 | Yes |  |  |  | - | %X% | - | - |
+| TGBT22A_607 | 1-2 | Yes |  |  |  | - | %X% | - | - |
+| TGBT22B_601 | 1-5 | Yes |  |  |  | - | %X% | - | - |
+| TGBT22B_602 | 1-4 | Yes |  |  |  | - | %X% | - | - |
+| TGBT22B_607 | 1-6 | Yes |  |  |  | - | %X% | - | - |
+| TGBT22B_608 | 1-18 | No | VEGAS | VRAD-TOP | Ryan Lynch | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TGBT22B_609 | 1-10 | Yes |  |  |  | - | %X% | - | - |
+| TGBT22B_610 | 0-20 | Yes | DCR, VEGAS | VRAD-TOP, VRAD-LSR | Larry Morgan, Paul Marganian | - | %X% | - | - |
+| TGBT22B_612 | 1-6 | Yes |  |  |  | - | %X% | - | - |
+| TGBT22B_999 | 1-3 | Yes |  |  |  | - | %X% | - | - |
+| TGBT23A_603 | 1-2 | No | DCR, CCB | VRAD-TOP | Anika Schmiedeke, David Frayer | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (not VEGAS) |
+| TGBT23A_605 | 1-5 | No | DCR | VRAD-TOP | Ron Maddalena, Ron Grider | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (not VEGAS) |
+| TGBT23A_607 | 1-3 | No | VEGAS, DCR | VRAD-TOP | Pedro Salas | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TGBT23A_609 | 1-13 | No | VEGAS | VRAD-TOP | Ryan Lynch | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TGBT23A_610 | 1-5 | No | VEGAS | VRAD-TOP | Will Armentrout | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TGBT23A_613 | 1-16 | Yes | VEGAS, DCR, VEGAS, DCR_AF | VRAD-TOP, VRAD-LSR | Larry Morgan, Larry Rudnick | - | %X% | - | - |
+| TGBT23A_614 | 1 | Yes |  |  |  | - | %X% | - | - |
+| TGBT23A_615 | 1-4, 6-19 | Yes | VEGAS, DCR | VRAD-TOP, VRAD-LSR, VOPT-BAR | Ryan Lynch | - | %X% | - | - |
+| TGBT23A_M2 | 1-2 | Yes |  |  |  | - | %X% | - | - |
+| TINT | 220921-220923, 220926, 220928-220929, 221006, 221012, 221019, 221021, 221026-221027, 221102, 221108, 221110, 221116, 221118, 221120-221122, 221129, 221201, 221207, 221212, 221226, 230105, 230111-230112, 230127, 230131, 230215, 230222-230223, 230228, 230306-230309, 230313-230314, 230317, 230321, 230327, 230403-230404, 230414, 230420, 230422, 230505, 230511, 230517, 230606, 230608, 230629, 230712-230713, 230719-230720, 230724, 230729, 230802, 230807-230808, 230811, 230815, 230911-230912, 20220505, 20220511, 20220524, 20220616, 20220624, 20220628, 20220712-20220714, 20220718, 20220728-20220729, 20220803-20220804, 20220901, 20220912-20220915, 20220920-20220921 | Yes | DCR, VEGAS, DCR_AF | VRAD-TOP, VRAD-LSR, VOPT-LSR | Paul Marganian, Kathlyn Purcell, Joe Brandt | - | %X% | - | - |
+| TINT_20220913A | N/A | Yes |  |  |  | - | %X% | - | - |
+| TKFPA | 1 | Yes |  |  |  | - | %X% | - | - |
+| TLASSI | 1 | Yes |  |  |  | - | %X% | - | - |
+| TLASSI_190622B | N/A | Yes |  |  |  | - | %X% | - | - |
+| TPTCSHOL | 220517-220518, 220524, 221021, 221025, 230511, 230516, 230614, 230629, 230705, 230708, 230717, 230719-230720, 230727-230823 | No | CCB, DCR | VRAD-TOP | Pedro Salas | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (not VEGAS) |
+| TPTCSPNT | 220620-220701, 220808, 220813, 220821, 220825-220826, 220829, 221011-221012, 221021-221022, 221028, 221206-221208, 230420-230421, 230504-230505, 230605, 230710-230714 | No | DCR, CCB | VRAD-TOP | David Frayer | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (not VEGAS) |
+| TRCO_221108_P8 | N/A | Yes |  |  |  | - | %X% | - | - |
+| TRCO_221117_C | N/A | Yes |  |  |  | - | %X% | - | - |
+| TRCO_221119_C | N/A | Yes |  |  |  | - | %X% | - | - |
+| TRCO_221123_P8 | N/A | Yes |  |  |  | - | %X% | - | - |
+| TRCO_221201_Ku | N/A | Yes |  |  |  | - | %X% | - | - |
+| TRCO_221212_S | N/A | Yes |  |  |  | - | %X% | - | - |
+| TRCO_221212_W | N/A | Yes |  |  |  | - | %X% | - | - |
+| TRCO_230306_W | N/A | Yes |  |  |  | - | %X% | - | - |
+| TRCO_230308_W | N/A | Yes |  |  |  | - | %X% | - | - |
+| TRCO_230412_L | N/A | No | DCR, VEGAS, VEGAS | VRAD-TOP | Evan Smith | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRCO_230413_C | N/A | No | VEGAS, DCR | VRAD-TOP | Pedro Salas | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRCO_230413_KFP | N/A | No | VEGAS, DCR_AF | VRAD-TOP | David Frayer | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRCO_230413_Ka | N/A | No | VEGAS, DCR, CCB | VRAD-TOP | David Frayer | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRCO_230413_P8 | N/A | No | VEGAS, DCR, VEGAS | VRAD-TOP | Ryan Lynch | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRCO_230413_W | N/A | Yes | DCR, CCB, VEGAS, VLBA_DAR | VRAD-TOP, VRAD-LSR | Pedro Salas | - | %X% | - | - |
+| TRCO_230508_S | N/A | No | DCR, VEGAS | VRAD-TOP | Brenne Gregory | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRCO_230523_C | N/A | No | VEGAS, DCR | VRAD-TOP | Emily Moravec | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRCO_230525_P8 | N/A | No | VEGAS, DCR | VRAD-TOP | Emily Moravec | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRCO_230608_KU | N/A | Yes |  |  |  | - | %X% | - | - |
+| TRCO_230621_L | N/A | Yes |  |  |  | - | %X% | - | - |
+| TRCO_230622_L | N/A | Yes |  |  |  | - | %X% | - | - |
+| TRCO_230711_S | N/A | Yes |  |  |  | - | %X% | - | - |
+| TRCO_230718_C | N/A | Yes |  |  |  | - | %X% | - | - |
+| TRCO_230718_P8 | N/A | Yes |  |  |  | - | %X% | - | - |
+| TRCO_KFPA040423 | N/A | No | VEGAS | VRAD-TOP | Larry Morgan | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRCO_junk01 | N/A | Yes | VEGAS, DCR, CCB | VRAD-TOP, VRAD-LSR | David Frayer | - | %X% | - | - |
+| TRCO_paul | N/A | Yes |  |  |  | - | %X% | - | - |
+| TRFI_010123 | 81-82 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010123_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010123_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010123_L21 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010123_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010123_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010123_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010123_W1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010223 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010223_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010223_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010223_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010223_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010223_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010223_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010223_W1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010323 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010323_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010323_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010323_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010323_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010323_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010423 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010423_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010723_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010723_K2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010723_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010723_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010823_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010823_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010823_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010823_W1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010823_W2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010923_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_010923_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011023_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011023_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011123_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011123_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011123_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011223 | 81-83 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011323_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011323_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011323_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011423 | 81-82 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011423_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011423_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011523_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011523_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011523_Q2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011523_W1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011623_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011623_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011623_Q2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011623_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011623_W1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011723_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011723_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011723_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011723_l1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011823 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011823_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011823_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011823_Q2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011923 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011923_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_011923_K2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012023_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012123 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012123_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012223_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012223_K2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012223_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012323_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012323_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012423_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012423_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012423_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012423_U2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012423_W1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012523_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012523_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012523_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012523_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012623 | 81-82 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012623_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012623_K2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012723_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012723_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012723_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012723_W1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012723_W2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012823_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012823_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012823_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012823_W1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012923_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_012923_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_013023_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_013023_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_013123_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_013123_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_013123_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020123 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020123_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020123_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020123_L3 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020323_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020323_K2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020323_W1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020423_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020423_W1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020423_W2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020523_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020523_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020523_Q2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020623 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020623_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020623_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020723_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020723_Q2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020723_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020823_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020823_Q2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020823_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020923_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020923_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020923_W1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_020923_W2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021023_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021023_Q2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021023_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021023_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021123_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021123_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021223_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021223_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021323_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021323_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021323_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021423_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021423_W1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021523_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021523_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021623_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021623_W1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021723_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021723_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021823_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021823_Q2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021823_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021823_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021823_W1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021923_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021923_K2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_021923_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022023_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022023_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022023_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022123_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022123_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022123_L3 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022223_L4 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022323_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022323_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022323_Q21 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022423_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022423_K2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022423_L11 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022523_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022523_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022523_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022523_Q2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022523_Q3 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022623_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022623_K2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022623_W1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022623_W2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022723_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022723_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022723_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022823_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022823_K2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022823_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_022823_Q2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030123_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030123_Q2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030123_W1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030223_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030223_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030223_S3 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030323_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030323_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030323_L32 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030423_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030423_K2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030423_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030423_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030523_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030523_K2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030523_K3 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030523_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030523_Q2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030623_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030623_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030623_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030723_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030723_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030823 | 81-82 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030823_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030923_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030923_K21 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_030923_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031023_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031023_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031023_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031123 | 81-82 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031123_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031123_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031123_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031123_S32 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031223_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031223_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031223_L3 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031223_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031223_S2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031323 | 8 | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031323_Q1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031323_Q2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031423_L1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031423_S1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031423_S2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031523_L1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031523_W1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031523_W2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031623_Q1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031723_C1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031723_L1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031723_L2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031823_C2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_0318723 | 8 | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_0318723_C1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031923_L1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031923_L2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031923_Q1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_031923_Q2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032023_C1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032023_C2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032023_W1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032123_K1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032123_Q1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032123_Q2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032223_K1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032223_K2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032223_L1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032323 | 81-82 | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032323_C1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032423_L1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032423_W1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032423_W2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032523_C1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032523_C2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032523_C3 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032523_K1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032523_L1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032623 | 81-82 | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032623_W1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032623_W2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032723_C1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032723_C2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032723_L1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032723_Q1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032823_C1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032823_C2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032923 | 8 | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032923_X1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_032923_X2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_033023_L1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_033023_L2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_033023_W1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_033123 | 81-82 | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_033123_K1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040123_C1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040123_C2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040123_L1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040123_L2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040223_A1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040223_A2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040223_K1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040223_K2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040323_A1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040323_K1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040323_K2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040323_W1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040423 | 8 | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040423_A1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040423_C1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040423_C2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040423_L1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040423_L2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040423_W1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040523 | 8 | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040523_A1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040523_A2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040523_C1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040523_K1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040523_L1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040523_L2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040523_L3 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040523_X1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040523_X2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040623 | 81-82 | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040623_A1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040623_C1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040623_K1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040623_W1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040723_C1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040723_K1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040723_K2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040723_L1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040823_A1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040823_C1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040823_L1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040823_W1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040923_A1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040923_C1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040923_K1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_040923_W1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_041023_L1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_041023_L2 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_041123 | 8 | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_041123_A1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_041123_C1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_041123_K1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_041123_W1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_041223_A1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_041223_K1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_041223_L1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_050222_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_050323_L1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_050723_L1 | N/A | No | VEGAS | VRAD-TOP | OPERATOR | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051122 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051122_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051322 | 3 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051422_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051522_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051522_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051522_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051722 | 3 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051722_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051722_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051722_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051722_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051822 | 3 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051822_A1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051822_A2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051822_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051822_C2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051822_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051822_K2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051822_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051822_x2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051922 | 3 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051922_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051922_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_051922_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052022_A1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052022_A2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052022_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052022_K2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052022_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052022_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052022_k1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052122 | 3 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052122_A2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052122_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052122_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052122_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052122_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052222 | 3 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052222_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052222_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052222_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052222_L3 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052222_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052322_A1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052322_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052422 | 31-32 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052422_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052522 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052522_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052622 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052722 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052922 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_052922_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_053022 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_053022_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_053122 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_060122_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_060322_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_060522_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_06062022_C | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_060922_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_061122_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_061122_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_061122_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_061222 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_061222_A1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_061222_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_061222_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_061322 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_061622 | 3 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_062022 | 3 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_063022 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_070622 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_070622_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_070622_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_070722 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_070722_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_070822_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_070922_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071022_A1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071022_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071022_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071022_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071122_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071422_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071422_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071522_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071622 | 2 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071622_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071622_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071722_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071722_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071722_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071722_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071822 | 2 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071822_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071822_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071822_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071822_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071823_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_071923_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_072323_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_080322_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_080522_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_080823 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_080823_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_080823_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_080923_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_080923_C2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_080923_C3 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_080923_C3L | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_080923_C4 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_080923_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_080923_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081023_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081023_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081023_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081023_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081023_U2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081123_A1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081123_A2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081123_A3 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081123_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081123_C2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081123_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081222_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081223_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081223_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081223_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081323_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081323_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081323_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081323_L3 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081422_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081423_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081423_C2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081423_C3 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081423_C4 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081523_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081523_C2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081523_C3 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081622_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081623_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081723_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081723_C2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081822_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081823_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081823_C2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081823_C3 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081922_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081923_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081923_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_081923_U2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082022_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082023_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082023_C2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082023_C3 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082122_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082123_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082123_C2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082123_C3 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082223_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082223_C2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082223_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082323_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082323_C2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082323_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082323_U2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082423_A1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082423_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082423_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082423_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082423_U2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082523_A1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082523_A2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082523_A3 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082622_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082623_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082623_C2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082623_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082723_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082723_K2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082723_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082723_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082823_A1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082823_A2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082823_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082823_C2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082923_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082923_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082923_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_082923_U2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_083023_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_083023_K2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_083023_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_083023_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_083122_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_083123 | 81-82 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_083123_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_083123_C2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090123_A1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090123_A2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090123_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090123_K2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090223_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090223_C2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090223_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090223_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090322_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090323_A1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090323_A2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090323_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090323_U2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090422_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090423 | 81-82 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090423_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090423_K2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090522_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090522_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090523_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090523_C2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090523_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090523_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090622_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090622_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090622_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090623_A1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090623_A2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090623_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090623_U2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090722_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090722_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090723_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090723_K2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090723_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090723_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090822_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090822_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090823_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090823_C2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090922_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090922_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090922_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090923_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090923_L3 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_090923_L4 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_091022_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_091022_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_091023 | 81-82 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_091023_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_091023_U2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_091123 | 81-82 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_091123_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_091123_C2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_091223 | 81-82 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_091223_A1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_091323_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_091323_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_091323_Q2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_091423_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_091423_Q2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_100222_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_100622_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_100722_A1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_100722_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_100822_W1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_100822_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_101322_A1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_101322_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_101522_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_101622_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_101622_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_101722_A1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_101722_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_101722_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_101922_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_102422_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_102622_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_102722_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_102822_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_1101522_A1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_1101522_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_110322_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_110622_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_110622_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_110622_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_110622_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_110622_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_110622_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_110722_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_111022_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_111122_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_111122_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_111122_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_111122_X1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_111222_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_111322_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_111622 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_111722_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_111722_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_111722_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_111822_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_111922_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_112222_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_112322 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_112322_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_112522_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_112622_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_112622_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_112822_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_120622_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_120622_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_120622_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_120722_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_120822 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_120922_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_120922_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_120922_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_121022 | 81-82 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_121022_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_121122_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_121122_K1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_121122_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_121122_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_121122_U1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_121322_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_121322_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_121522_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_121622_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_121822 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_121822_C1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_121822_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_121922_W1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_122122_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_122122_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_122322_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_122422_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_122422_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_122722_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_122822_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_122822_Q1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_123022 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_123122 | 8 | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_123122_L1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_123122_L2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_123122_S1 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_123122_S2 | N/A | No |  | VRAD-TOP |  | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_junk01 | N/A | No | VEGAS | VRAD-TOP | David Frayer | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TRFI_paul | N/A | No | VEGAS | VRAD-TOP | Paul Marganian | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TSCAL_030822_L | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_040822_L | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_040822_X | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_140722_C | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_220505_Ku | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_220511_C | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_220511_Ku | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_220511_P3 | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_220511_te | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_220525 | 8 | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_220609_KU | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_220616_P3 | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_220929_L | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_220929_W | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_221021_P8 | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_221027_L | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_221027_Q | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_221027_Q2 | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_221027_Q3 | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_221103_Ku | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_221103_S | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_300622_S | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_JUNK_fun | N/A | Yes |  |  |  | - | %X% | - | - |
+| TSCAL_TSCAL | 3 | Yes |  |  |  | - | %X% | - | - |
+| TSCI_ANIKA | 1-9 | Yes | VEGAS, DCR | VRAD-LSR, VRAD-TOP | Anika Schmiedeke | - | %X% | - | - |
+| TSCI_BRENNE | 1-5 | No | VEGAS | VRAD-TOP | Brenne Gregory | - | %Y% | [[Main.VictoriaCatlett][Victoria Catlett]] | No fix needed (topocentric) |
+| TSCI_DAVE | 1-5 | Yes |  |  |  | - | %X% | - | - |
+| TSCI_EVAN | 1 | Yes |  |  |  | - | %X% | - | - |
+| TSCI_JAY | 1 | Yes |  |  |  | - | %X% | - | - |
+| TSCI_LARRY | 1-3 | Yes | VEGAS, DCR | VRAD-LSR, VRAD-TOP | Larry Morgan | - | %X% | - | - |
+| TSCI_PEDRO | 1-5-2306 | Yes |  |  |  | - | %X% | - | - |
+| TSCI_RYAN | 2-10-23011 | Yes | VEGAS, VEGAS | VRAD-TOP, VOPT-BAR, VOPT-TOP | Ryan Lynch | - | %X% | - | - |
+| TSCI_VLBI | 2 | Yes |  |  |  | - | %X% | - | - |
+| TSDW | 202308-221102, 221117-20230802 | Yes |  |  |  | - | %X% | - | - |
+| data-cleaner | N/A | Yes |  |  |  | - | %X% | - | - |
+| data-cleaner~ | N/A | Yes |  |  |  | - | %X% | - | - |
+| data-resync | N/A | Yes |  |  |  | - | %X% | - | - |
+| data-resync~ | N/A | Yes |  |  |  | - | %X% | - | - |
+| junk | N/A | Yes |  |  |  | - | %X% | - | - |
+| test | N/A | Yes |  |  |  | - | %X% | - | - |
+| test-cleaner | N/A | Yes |  |  |  | - | %X% | - | - |
+| test-cleaner~ | N/A | Yes |  |  |  | - | %X% | - | - |
+| test-resync | N/A | Yes |  |  |  | - | %X% | - | - |
+| test-resync~ | N/A | Yes |  |  |  | - | %X% | - | - |
+| tmp | N/A | Yes |  |  |  | - | %X% | - | - |
+| trgs_8 | 2 | Yes |  |  |  | - | %X% | - | - |

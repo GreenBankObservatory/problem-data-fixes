@@ -3,12 +3,14 @@ This fix is for data which had improper Doppler tracking after the JPL ephemeris
 
 ## Set up
 
-(1) ```git clone git@github.com:GreenBankObservatory/problem-data-fixes.git```
+(1) ```$ git clone git@github.com:GreenBankObservatory/problem-data-fixes.git```
 
-(2) ```/users/gbosdd/python/bin/python3.11 -m venv /path/to/ephem-env-3.11```
+(2) ```$ cd problem-data-fixes/2023-ephemeris```
 
-(3) ```source /path/to/ephem-env-3.11/bin/activate```
+(3) ```$ /users/gbosdd/python/bin/python3.11 -m venv ephem-env-3.11```
 
-(4) ```pip install -r requirements.txt```
+(4) ```$ source ephem-env-3.11/bin/activate```
 
-(5) ```python main.py```
+(5) ```(ephem-env-3.11) $ pip install -r requirements.txt```
+
+(6) ```(ephem-env-3.11) $ python main.py```

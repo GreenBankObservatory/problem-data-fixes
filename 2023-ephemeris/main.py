@@ -1,104 +1,149 @@
-import os, glob
-import numpy as np
-from ephemeris_fix import *
+import os, glob, multiprocessing
 from concurrent.futures import ThreadPoolExecutor
-from astropy.io import fits
+from getpass import getuser
+
+from rich import print as rprint
+from rich.prompt import Prompt
+from rich.console import Console
+from rich.table import Table
 from rich.progress import (
     BarColumn,
-    DownloadColumn,
-    TextColumn,
-    TransferSpeedColumn,
     TimeElapsedColumn,
     TimeRemainingColumn,
     Progress,
-    TaskID,
+    TaskID
 )
 
-def welcome_message():
-    n_char = os.get_terminal_size().columns
-    message = "EPHEMERIS FIX"
-    if n_char >= 25:
-        full_line = "#"*n_char
-        space_line = "#"*3 + " "*(n_char-6) + "#"*3
-        lpad = int(np.floor((n_char-19)/2))
-        rpad = int(np.ceil((n_char-19)/2))
-        text_line = "#"*3 + " "*lpad + message + " "*rpad + "#"*3 
-        print(full_line)
-        print(full_line)
-        print(space_line)
-        print(text_line)
-        print(space_line)
-        print(full_line)
-        print(full_line)
-    else:
-        print(message)
+from util.messages import Messages
+from util.ephemeris_fix import *
 
-def check_host(fpath="."):
+def get_paths():
+    """ Get paths to find the data and save the results """
+    loadpath = get_loadpath()
+    savepath = get_savepath()
+    rprint(f"Loading data from {loadpath}")
+    rprint(f"Saving results to {savepath}")
+    return loadpath, savepath
+
+def get_loadpath():
+    """ Get path to find the data """
+    loadpath_default = "/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/original"
+    loadpath = Prompt.ask(f"Where can I find the files?", default = loadpath_default)
+    loadpath_exists = check_path(loadpath)
+    if loadpath_exists:
+        return loadpath
+    else:
+        rprint(f"Sorry, I couldn't find that path. Please try again.")
+        loadpath = get_loadpath()
+        return loadpath
+
+def get_savepath():
+    """ Get path to save the results """
+    USERNAME = getuser()
+    if USERNAME == "vcatlett":
+        savepath_default = "/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/modified"
+    else:
+        savepath_temp = f"/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/testing/{USERNAME}"
+        if os.path.exists(savepath_temp):
+            savepath_default = savepath_temp
+        else:
+            savepath_default = "."
+    savepath = Prompt.ask("Where should I save the results?", default = savepath_default)
+    savepath_exists = check_path(savepath)
+    if savepath_exists:
+        return savepath
+    else:
+        rprint(f"Sorry, I couldn't find that path. Please try again.")
+        savepath = get_savepath()
+        return savepath
+
+def check_path(fpath):
+    """ Check that the path exists """
     return os.path.exists(fpath)
 
-def check_project(project_code):
-    fpath = f"/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/original/{project_code}*"
-    sessions = glob.glob(fpath)
-    return os.path.exists(fpath), sessions
+def get_projects(loadpath):
+    """ Find all projects on the loadpath """
+    rprint("Searching for projects...")
+    sessions = [ f.name for f in os.scandir(loadpath) if f.is_dir() ]
+    projects = {}
+    for s in sessions:
+        s_split = s.split('_')
+        if len(s_split) == 3:
+            p = "_".join(s_split[0:2])
+            sc = s_split[2]
+        elif len(s_split) == 2:
+            p = s_split[0]
+            sc = s_split[1]
+        if p not in projects.keys():
+            projects[p] = [sc]
+        else:
+            projects[p].append(sc)
+    get_project_table(projects)
 
-welcome_message()
+def get_project_table(projects):
+    """ Print a table of available projects """
+    table = Table(title="Available Projects")
+    table.add_column("Project", justify="right", style="cyan", no_wrap=True)
+    table.add_column("Session(s)", justify="left", style="magenta")
 
-data_path = "/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/original/"
-save_data_path = "/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/modified/"
-all_sessions = [g.split('/')[-1] for g in glob.glob(f"{data_path}*")]
-avail_sessions = [a for a in all_sessions if a .startswith("AGBT")]
-#print(avail_sessions)
-done_sessions = ["AGBT21B_316_21", "AGBT23A_387_01", "AGBT23A_387_02", "AGBT23A_387_03", "AGBT23A_387_04"]
-#print("Please select from the following sessions: ")
-#print(avail_sessions)
-#selected_session = "AGBT21B_316_21"#input("Session: ")
-# selected_session = input("Session: ")# "AGBT23A_387_01"
-##s_tot = 10
-##sn = int(input("Skip number: "))
-#n_avail = len(avail_sessions)
-#n_done = 0
-#for selected_session in avail_sessions[sn::s_tot]:
-#    if selected_session not in done_sessions:
-#for selected_session in done_sessions:
-#    if check_host(data_path + selected_session):
-#        print(f"Great! I'll get started on {selected_session}.")
-#        fix_lo1a_vegas(data_path, selected_session)
-#        #fix_sdfits(selected_session)
-#        print(f"All done! You can find the data at {save_data_path}{selected_session}.")
-#    else:
-#        print("Sorry, I couldn't find that session. Please try again.")
+    for p in sorted(projects.keys()):
+        s_list = projects[p]
+        if len(s_list) > 1:
+            s_list = sorted(s_list)
+            s_str = ", ".join(s_list)
+        else:
+            s_str = s_list[0]
+        table.add_row(p, s_str)
 
-n_processes = 12
+    console = Console()
+    console.print(table)
 
-progress_bar = Progress(
-    "[progress.description]{task.description}",
-    BarColumn(),
-    "[progress.percentage]{task.percentage:>3.0f}%",
-    TimeRemainingColumn(),
-    TimeElapsedColumn(),
-    refresh_per_second=1,
-)
+def select_sessions(loadpath):
+    """ Get a list of sessions to fix """
+    sessions_request = Prompt.ask(f"What sessions should I fix?", default = "*")
+    session_paths = glob.glob(os.path.join(loadpath, sessions_request))
+    sessions_to_fix = [os.path.basename(sp) for sp in session_paths]
+    return sessions_to_fix
 
-#with progress_bar:
-    # Create a task for the progress bar
-    #overall_progress = progress_bar.add_task(f"[green]Ephemeris:")
+def get_threads():
+    """ Get the number of CPU threads """
+    max_threads = multiprocessing.cpu_count()
+    thread_count = int(Prompt.ask("Number of CPU threads", default = str(max_threads)))
+    if thread_count > max_threads:
+        rprint(f"WARNING: {thread_count} is too many CPU threads. Defaulting to maximum value of {max_threads}.")
+        thread_count = max_threads
+    return thread_count
 
-    # Define the processes
-    #futures = []
-    #executor = ThreadPoolExecutor(n_processes)
-avail_sessions.sort()
-for avail_session in avail_sessions:
-    spath=f"/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/modified/{avail_session}/GO/*.fits"
-    #print(spath)
-    sds = glob.glob(spath)
-    if len(sds) > 1:
-        sds = sds[0]
-    #print(spath, sds)
-    data = fits.open(sds)
-    print(f"{avail_session}: {data[0].header['OBSERVER']}")
-    data.close()
-        #futures.append(executor.submit(fix_lo1a_vegas, data_path, avail_session))
+def make_progress_bar():
+    """ Make a progress bar to keep track of the results """
+    progress_bar = Progress(
+        "[progress.description]{task.description}",
+        BarColumn(),
+        "[progress.percentage]{task.percentage:>3.0f}%",
+        TimeElapsedColumn(),
+        refresh_per_second=1
+    )
+    return progress_bar
 
-    # Update the progress bar
-    #while (n_finished := sum([future.done() for future in futures])) < len(futures):
-    #    progress_bar.update(overall_progress, completed=n_finished, total=len(futures))
+def run_fix(loadpath, savepath, sessions_to_fix):
+    thread_count = get_threads()
+    progress_bar = make_progress_bar()
+    print('\n')
+    with progress_bar:
+        overall_progress = progress_bar.add_task(f"[green]Ephemeris Fix Progress:")
+        fix_processes = []
+        executor = ThreadPoolExecutor(thread_count)
+        for session in sorted(sessions_to_fix):
+            task_id = progress_bar.add_task(f"[cyan]{session}", start=False, transient=True)
+            future = executor.submit(main_fix, progress_bar, task_id, loadpath, savepath, session)
+            fix_processes.append(future)
+        while (n_finished := sum([fp.done() for fp in fix_processes])) < len(fix_processes):
+            progress_bar.update(overall_progress, completed=n_finished, total=len(fix_processes))
+
+if __name__ == "__main__":
+    Messages.hello()
+    loadpath, savepath = get_paths()
+    get_projects(loadpath)
+    sessions_to_fix = select_sessions(loadpath)
+    run_fix(loadpath, savepath, sessions_to_fix)
+    Messages.goodbye()

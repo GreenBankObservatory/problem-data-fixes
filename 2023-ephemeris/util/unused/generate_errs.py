@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from core import *
+from core.core import *
 
 def read_data(sideband, veldef_start):
     true_values = pd.read_csv("./tests/local-data/true_values.csv")
