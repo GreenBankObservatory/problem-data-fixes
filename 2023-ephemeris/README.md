@@ -13,7 +13,7 @@ This fix is for data which had improper Doppler tracking after the JPL ephemeris
 
 (5) ``(ephem-env-3.11) $ pip install -r requirements.txt``
 
-(6) ``(ephem-env-3.11) $ nohup python main.py`` (``nohup`` lets the process continue even if the SSH session closes)
+(6) ``(ephem-env-3.11) $ python main.py``
 
 (7) Follow the prompts. Use glob-like selection for choosing sessions (ex. ``AGBT*``)
 
