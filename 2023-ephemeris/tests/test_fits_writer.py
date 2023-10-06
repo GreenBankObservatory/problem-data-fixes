@@ -1,12 +1,11 @@
-from core.core import *
-from load_session import *
-from write_fits import *
+from util.core import *
+from util.load_session import *
+from util.fits import *
 import os
 
 def test_LO1A_writer():
 
     original_fits = open_original_fits("./tests/local-data/sample_LO1A.fits")
-    n_hdu = get_n_hdu(original_fits)
 
     hdr0_dict = {     
         'OBJECT': 'FITS TEST',                       
@@ -24,7 +23,7 @@ def test_LO1A_writer():
 
     original_fits = write_hdr(original_fits, 0, hdr0_dict)
     original_fits = write_tbl(original_fits, 3, data3_dict, n_rows=4)
-    write_file(original_fits, './tests/local-data/new_LO1A.fits', overwrite_bool=True)
+    write_file(original_fits, './tests/local-data/new_LO1A.fits')
     original_fits.close()
 
     new_fits = fits.open('./tests/local-data/new_LO1A.fits')

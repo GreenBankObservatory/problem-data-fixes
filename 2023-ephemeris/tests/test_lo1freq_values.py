@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from core.core import *
+from util.core import *
 
 def read_data(sideband, veldef_start):
     true_values = pd.read_csv("./tests/local-data/true_values.csv")
@@ -9,7 +9,8 @@ def read_data(sideband, veldef_start):
     return true_values
 
 def calc_lo1freqs(data, sideband, vel_formula):
-    lo1freqs = sky2lo(data['RESTFREQ'], data['LOMULT'], data['IFFREQ'], data['VFRAME'], sideband, vel_formula, data['VEL'])
+    f_new, f_offset = calc_f_offset(data['RESTFREQ'], data['VFRAME'], data['LO1FREQ'], data['LOMULT'], data['IFFREQ'], sideband, formula=vel_formula)
+    lo1freqs = sky2lo(f_new, data['LOMULT'], data['LOOFFSET'], data['IFFREQ'], sideband)
     return lo1freqs
 
 def calc_lo1_diffs(lo1_og, lo1_calc):

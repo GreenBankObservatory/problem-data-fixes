@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from core.core import *
+from util.core import *
 
 def read_data():
     true_values = pd.read_csv("./tests/local-data/true_values.csv")

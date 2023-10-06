@@ -18,3 +18,6 @@ This fix is for data which had improper Doppler tracking after the JPL ephemeris
 (7) Follow the prompts. Use glob-like selection for choosing sessions (ex. ``AGBT*``)
 
 To check on the overall memory usage of the script, log into the same machine in another terminal. Then run ``ps aux --sort=-%mem | grep {USERNAME} | head``. If using more than 1 CPU thread, you will likely see a `%CPU` greater than 100. That's fine. Every 100% translates to full utilization of 1 core, so on a machine with 16 cores, the max utilization would be 1600%. I haven't seen this code get above 500% even with all 16 possible threads. 
+
+## Testing
+Tests are located in the ``tests/`` directory. To run them, run ``pytest`` in the terminal. After downloading this repository, you're welcome to change the testing thresholds or add your own tests. 

@@ -111,15 +111,16 @@ def calc_f_offset(f_0, vframe, lo1_freq_og, lo_mult, iffreq, sideband, formula='
     '''
     c = const.c.value
     f_offset_og = lo2sky(lo1_freq_og, lo_mult, iffreq, sideband)
+    v_over_c = np.divide(vframe, c)
     # [5.2.1]
     if formula == 'rel':
-        f_new = f_0 * np.sqrt(np.divide((c-vframe),(c+vframe)))
+        f_new = f_0 * np.divide(np.sqrt(1 - v_over_c**2), 1 + v_over_c)
     # [5.2.2]
     elif formula == 'opt':
-        f_new = f_0 / (1 + vframe/c)
+        f_new = f_0 / (1 + v_over_c)
     # [5.2.3]
     elif formula == 'rad':
-        f_new = f_0 * (1 - vframe/c)
+        f_new = f_0 * (1 - v_over_c)
     f_offset = f_new - f_offset_og
     return f_new, f_offset
 
@@ -146,7 +147,7 @@ def calc_channel_offset(f_offset, channel_bw, sideband):
         channel_offset = int(np.round(f_offset/channel_bw))
     return channel_offset
 
-def sky2lo(f_sky, lomult, iffreq, sideband):
+def sky2lo(f_sky, lomult, looffset, iffreq, sideband):
     '''
     Convert LO1FREQ to a sky frequency
 
@@ -167,9 +168,9 @@ def sky2lo(f_sky, lomult, iffreq, sideband):
             the LO1 frequency corresponding to the sky frequency
     '''
     if sideband == "LOWER":
-        lo1freq = np.divide(np.add(iffreq, f_sky), lomult)
+        lo1freq = np.divide(np.add(iffreq, f_sky), lomult) - looffset
     elif sideband == "UPPER":
-        lo1freq = np.divide(np.subtract(f_sky, iffreq), lomult)
+        lo1freq = np.divide(np.subtract(f_sky, iffreq), lomult) - looffset
     else:
         print(f"sky2lo: {sideband} is not a valid sideband. Value must be \"LOWER\" or \"UPPER\"")
         lo1freq = np.nan
