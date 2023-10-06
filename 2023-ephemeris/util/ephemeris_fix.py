@@ -81,6 +81,8 @@ def make_vegas_dict(session):
             'data':{'data':session.VEGAS_DATA}
             }
         }
+    for sf in session.VEGAS_SUBFREQ.keys():
+        vegas_dict[0]['hdr'][sf] = session.VEGAS_SUBFREQ[sf]
     return vegas_dict
 
 def calc_progress(loadpath, session_name):
@@ -143,12 +145,15 @@ def main_fix(progress, task_id, loadpath, savepath, session_name):
             
             progress.update(task_id, advance=1)
                 
-            # [11] Shift the VEGAS spur locations
+            # [11] Shift the other VEGAS values
             n_cri = np.shape(session.VEGAS_CRVAL1)[0]
             for cri in range(n_cri):
                 vegas_dict[4]['data']['CRVAL1'][cri] = float(vegas_dict[4]['data']['CRVAL1'][cri] + f_offset_i)
                 vegas_dict[1]['data']['SPURCHAN'][cri] = int((cri*session.VEGAS_ADCSAMPF/64-vegas_dict[4]['data']['CRVAL1'][cri])/session.VEGAS_CDELT1[cri]+session.VEGAS_CRPIX1)
                 vegas_dict[1]['data']['SPURFREQ'][cri] = float(vegas_dict[1]['data']['SPURFREQ'][cri]+f_offset_i)
+            for vk in vegas_dict[0]['hdr'].keys():
+                if vk.startswith('SUB'):
+                    vegas_dict[0]['hdr'][k] = float(vegas_dict[0]['hdr'][vk]+f_offset_i)
             progress.update(task_id, advance=1)
 
             # Writing the new VEGAS files

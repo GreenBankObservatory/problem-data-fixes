@@ -28,9 +28,9 @@ class GBTSession:
         self.VEGAS_NPOL = int(data[0].header['NPOL'])            # Number of polarizations
         self.VEGAS_NSUBBAND = int(data[0].header['NSUBBAND'])    # Number of subbands (windows)
         self.VEGAS_ADCSAMPF = int(data[0].header['ADCSAMPF'])    # ADC Sampling frequency in Hz
-        self.VEGAS_SUBFREQ = []                                  # Center frequencies of each subband
+        self.VEGAS_SUBFREQ = {}                                  # Center frequencies of each subband
         for i in range(self.VEGAS_NSUBBAND):
-            self.VEGAS_SUBFREQ.append(float(data[0].header[f'SUB{i}FREQ']))
+            self.VEGAS_SUBFREQ[f'SUB{i}FREQ'] = float(data[0].header[f'SUB{i}FREQ'])
         self.VEGAS_BW = data[0].header['BASE_BW']                # Overall bandwidth (MHz)
 
         # HDU 1 (SPURS)

@@ -9,7 +9,6 @@ from rich.table import Table
 from rich.progress import (
     BarColumn,
     TimeElapsedColumn,
-    TimeRemainingColumn,
     Progress,
     TaskID
 )
