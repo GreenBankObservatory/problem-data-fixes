@@ -3,9 +3,10 @@ from util.load_session import *
 from util.fits import *
 import os
 
-def test_LO1A_writer():
+def test_fits_writer():
+    """ Check that a FITS file can be opened, edited, and saved to a new file without changes to the original file """
 
-    original_fits = open_original_fits("./tests/local-data/sample_LO1A.fits")
+    original_fits = open_original_fits("/home/sandboxes/vcatlett/repos/github/problem-data-fixes/2023-ephemeris/tests/local-data/sample_LO1A.fits")
 
     hdr0_dict = {     
         'OBJECT': 'FITS TEST',                       
@@ -37,6 +38,6 @@ def test_LO1A_writer():
     os.remove('./tests/local-data/new_LO1A.fits')
 
     # Make sure the original didn't get overwritten
-    old_fits = fits.open('./tests/local-data/sample_LO1A.fits')
+    old_fits = fits.open('/home/sandboxes/vcatlett/repos/github/problem-data-fixes/2023-ephemeris/tests/local-data/sample_LO1A.fits')
     assert old_fits[0].header['OBJECT'] == 'TEST'
     old_fits.close()

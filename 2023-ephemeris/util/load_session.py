@@ -2,6 +2,7 @@ import os
 import numpy as np
 from astropy.io import fits
 from scipy.interpolate import interp1d
+import pandas as pd
 
 class GBTSession:
     def __init__(self, LOADPATH, SESSION, LO1A_NAME, VEGAS_NAME):
@@ -33,6 +34,11 @@ class GBTSession:
             self.VEGAS_SUBFREQ[f'SUB{i}FREQ'] = float(data[0].header[f'SUB{i}FREQ'])
         self.VEGAS_BW = data[0].header['BASE_BW']                # Overall bandwidth (MHz)
 
+        # HDU 6 (DATA)
+        self.DMJD = data[6].data['DMJD']                   # DMJD of integration   | dim: (n, )
+        self.VEGAS_DATA = data[6].data['DATA']             # Counts                | dim: (n, SAMPLER, ACT_STATE, n_chan)
+        self.VEGAS_NROWS = len(self.DMJD)
+
         # HDU 1 (SPURS)
         self.VEGAS_SPURCHAN = data[1].data['SPURCHAN']           # Channel index of spur
         self.VEGAS_SPURFREQ = data[1].data['SPURFREQ']           # Frequency of spur (Hz)
@@ -40,13 +46,8 @@ class GBTSession:
         # HDU 4 (SAMPLER)
         self.VEGAS_CRPIX1 = data[4].header['CRPIX1']             # Index of reference freq's channel
         self.VEGAS_CRVAL1 = data[4].data['CRVAL1']               # Channel center frequencies
-        self.VEGAS_CDELT1 = data[4].data['CDELT1']               # Channel bandwidths
-        self.VEGAS_FREQRES = data[4].data['FREQRES']             # Width of a channel (Hz)
+        self.VEGAS_CDELT1 = pd.Series([data[4].data['CDELT1'] for i in range(len(self.DMJD)) ])       # Channel bandwidths
 
-        # HDU 6 (DATA)
-        self.DMJD = data[6].data['DMJD']                   # DMJD of integration   | dim: (n, )
-        self.VEGAS_DATA = data[6].data['DATA']             # Counts                | dim: (n, SAMPLER, ACT_STATE, n_chan)
-        self.VEGAS_NROWS = len(self.DMJD)
         # CLOSE FILE
         data.close()
 
@@ -58,18 +59,15 @@ class GBTSession:
         data = fits.open(self.LO1A_PATH)
 
         # HDU 1 (PRIMARY)
-        self.LO1_RESTFRQ    = data[0].header['RESTFRQ']
-        self.LO1_IFFREQ     = data[0].header['IFFREQ']
-        self.LO1_LOOFFSET   = data[0].header['LOOFFSET']
-        self.LO1_LOMULT     = data[0].header['LOMULT']
+        self.LO1_RESTFRQ    = pd.Series([data[0].header['RESTFRQ'] for i in range(len(self.DMJD)) ])
+        self.LO1_IFFREQ     = pd.Series([data[0].header['IFFREQ'] for i in range(len(self.DMJD)) ])
+        self.LO1_LOOFFSET   = pd.Series([data[0].header['LOOFFSET'] for i in range(len(self.DMJD)) ])
+        self.LO1_LOMULT     = pd.Series([data[0].header['LOMULT'] for i in range(len(self.DMJD)) ])
         self.LO1_REQDPTOL   = data[0].header['REQDPTOL']
-        self.LO1_SIDEBAND   = data[0].header['SIDEBAND']
+        self.LO1_SIDEBAND   = pd.Series([data[0].header['SIDEBAND'] for i in range(len(self.DMJD)) ])
 
         # HDU 2 (SOUVEL)
-        self.LO1_S_DMJD     = data[2].data['DMJD']
-        self.LO1_S_VEL      = data[2].data['VELOCITY']  # m/s
-        self.LO1_S_VDOT     = data[2].data['VDOT']      # m/s/s
-        self.LO1_S_VDOTDOT  = data[2].data['VDOTDOT']   # m/s/s/s
+        self.LO1_S_VEL      = pd.Series([data[2].data['VELOCITY'] for i in range(len(self.DMJD)) ])  # m/s
 
         # HDU 3 (LO1TBL)
         self.LO1_DMJD    = data[3].data['DMJD']
@@ -90,7 +88,7 @@ class GBTSession:
         else:
             f_l_row = interp1d(self.LO1_DMJD, l_row, kind='nearest')
             l_row_interp = f_l_row(self.DMJD)
-        return l_row_interp
+        return pd.Series(l_row_interp)
 
     def load_Antenna(self):
         ''' Loads the necessary information from the Antenna FITS files '''
@@ -106,8 +104,8 @@ class GBTSession:
 
         f_RA = interp1d(ANT_DMJD, ANT_RA, kind='linear')
         f_DEC = interp1d(ANT_DMJD, ANT_DEC, kind='linear')
-        self.RA = f_RA(self.DMJD)
-        self.DEC = f_DEC(self.DMJD)
+        self.RA = pd.Series(f_RA(self.DMJD))
+        self.DEC = pd.Series(f_DEC(self.DMJD))
 
         # CLOSE FILE
         data.close()
@@ -120,7 +118,7 @@ class GBTSession:
         data = fits.open(self.GO_PATH)
 
         # HDU 0 (PRIMARY)
-        self.GO_VELDEF = data[0].header['VELDEF']
-
+        self.GO_VELDEF = pd.Series([data[0].header['VELDEF'] for i in range(len(self.DMJD))])
+        
         # CLOSE FILE
         data.close()

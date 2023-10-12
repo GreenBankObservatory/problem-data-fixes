@@ -4,6 +4,7 @@ import os, glob
 from scipy.ndimage import shift
 from tqdm import tqdm
 from astropy.time import Time
+import datetime
 
 # LOCAL IMPORTS
 from .core import *
@@ -26,7 +27,7 @@ def get_vegas_files(loadpath, session, l_name):
     v_names = [os.path.basename(vp) for vp in v_paths]
     return v_paths, v_names
 
-def make_lo1a_dict(session):
+def make_lo1a_dict(session, t_now):
     """ Make a dictionary to hold the new LO1A data """
     n_rows = session.VEGAS_NROWS
     lo1a_dict = {
@@ -34,7 +35,8 @@ def make_lo1a_dict(session):
             'hdr':{
                 'HISTORY': 'File modified as part of Modification Request 5Q323',   # [12.2]
                 'HISTORY': 'Original data can be found in problem-data/',           # [12.2]
-                'REQDPTOL': str(session.VEGAS_FREQRES[0])                                   # [12.1]
+                'HISTORY': f'Last modified: {t_now.strftime("%Y-%m-%d %H:%M:%S")}',
+                'REQDPTOL': str(session.VEGAS_CDELT1[0])                            # [12.1]
                 }
             }, 
         3:{
@@ -50,13 +52,14 @@ def make_lo1a_dict(session):
         }
     return lo1a_dict
 
-def make_vegas_dict(session):
+def make_vegas_dict(session, t_now):
     """ Make a dictionary to hold the new VEGAS data """
     vegas_dict = {
         0:{
             'hdr':{
                 'HISTORY': 'File modified as part of Modification Request 5Q323',   # [12.2]
-                'HISTORY': 'Original data can be found in problem-data/'            # [12.2]
+                'HISTORY': 'Original data can be found in problem-data/',           # [12.2]
+                'HISTORY': f'Last modified: {t_now.strftime("%Y-%m-%d %H:%M:%S")}'
                 }
             }, 
         1:{
@@ -103,6 +106,7 @@ def main_fix(progress, task_id, loadpath, savepath, session_name):
 
     # [1] Create a GBT object
     gbt = create_obj_gbt()
+    t_now = datetime.datetime.now()
 
     # Iterate through LO1A files
     l_paths, l_names = get_lo1a_files(loadpath, session_name)
@@ -117,35 +121,34 @@ def main_fix(progress, task_id, loadpath, savepath, session_name):
             # [2] Load the session
             session = GBTSession(loadpath, session_name, l_name, v_name)
             n_rows = len(session.DMJD)
-            lo1a_dict = make_lo1a_dict(session)
-            vegas_dict = make_vegas_dict(session)
+            
+            lo1a_dict = make_lo1a_dict(session, t_now)
+            vegas_dict = make_vegas_dict(session, t_now)
             progress.update(task_id, advance=1)
-            for i in range(n_rows):
-                # [3] Calculate the VFRAME (m/s) for each VEGAS data row
-                vframe_i = calc_vframe(gbt, session.DMJD[i], session.RA[i], session.DEC[i], session.GO_VELDEF)
-                lo1a_dict[3]['data']['VFRAME'][i] = vframe_i # [4.7]
-                # [4] Calculate the VFRAME_OFFSET
-                vframe_off_i = calc_vframe_offset(session.LO1_VFRAME[i], vframe_i)
-                # [5] Calculate a frequency offset (F_OFFSET) from VFRAME
-                f_sky_i, f_offset_i = calc_f_offset(session.LO1_RESTFRQ, vframe_i, session.LO1_LO1FREQ[i], session.LO1_LOMULT, session.LO1_IFFREQ, session.LO1_SIDEBAND, formula='rel')
-                # [6] Calculate a channel shift from the frequency offset
-                channel_shift_i = calc_channel_offset(f_offset_i, session.VEGAS_CDELT1[0], session.LO1_SIDEBAND)
-                # [7] Calculate the new LO1 frequencies
-                lo1freq_i = sky2lo(f_sky_i, session.LO1_LOMULT, session.LO1_LOOFFSET, session.LO1_IFFREQ, session.LO1_SIDEBAND)
-                lo1a_dict[3]['data']['LO1FREQ'][i] = lo1freq_i # [7.3]
-                # [8] Calculate the new RVSYS values
-                rvsys_i = calc_rvsys(session.LO1_S_VEL, vframe_i, session.GO_VELDEF)
-                lo1a_dict[3]['data']['RVSYS'][i] = rvsys_i # [8.3]
-                # [9] Shift the rows of data in the VEGAS FITS files by their channel offsets
-                vegas_dict[6]['data']['data'][i] = shift(vegas_dict[6]['data']['data'][i], [0,0,channel_shift_i], cval=np.NaN)
-                # [10] Write the DMJD, RA, and DEC values in the row of the LO1TBL
-                lo1a_dict[3]['data']['DMJD'][i] = session.DMJD[i]
-                lo1a_dict[3]['data']['RA'][i] = session.RA[i]
-                lo1a_dict[3]['data']['DEC'][i] = session.DEC[i]
+            #for i in range(n_rows):
+            # [3] Calculate the VFRAME (m/s) for each VEGAS data row
+            vframe_i = calc_vframe(gbt, session.DMJD, session.RA, session.DEC, session.GO_VELDEF)
+            lo1a_dict[3]['data']['VFRAME'] = vframe_i
+            # [4] Calculate the new RVSYS values
+            rvsys_i = calc_rvsys(session.LO1_S_VEL, vframe_i, session.GO_VELDEF)
+            lo1a_dict[3]['data']['RVSYS'] = rvsys_i
+            # [5] Calculate the new LO1 frequencies
+            lo1freq_i = calc_lo1freq(session.LO1_RESTFRQ, rvsys_i, session.LO1_LOMULT, session.LO1_LOOFFSET, session.LO1_IFFREQ, session.LO1_SIDEBAND)
+            lo1a_dict[3]['data']['LO1FREQ'] = lo1freq_i
+            # [6] Calculate a frequency offset (F_OFFSET) from VFRAME
+            f_sky_i, f_offset_i = calc_f_offset(session.LO1_LO1FREQ, lo1freq_i, session.LO1_LOMULT, session.LO1_IFFREQ, session.LO1_SIDEBAND)
+            # [7] Calculate a channel shift from the frequency offset
+            channel_shift_i = calc_channel_offset(f_offset_i, session.VEGAS_CDELT1, session.LO1_SIDEBAND)
+            # [8] Shift the rows of data in the VEGAS FITS files by their channel offsets
+            vegas_dict[6]['data']['data'] = shift(vegas_dict[6]['data']['data'], [0,0,channel_shift_i], cval=np.NaN)
+            # [9] Write the DMJD, RA, and DEC values in the row of the LO1TBL
+            lo1a_dict[3]['data']['DMJD'] = session.DMJD
+            lo1a_dict[3]['data']['RA'] = session.RA
+            lo1a_dict[3]['data']['DEC'] = session.DEC
             
             progress.update(task_id, advance=1)
                 
-            # [11] Shift the other VEGAS values
+            # [10] Shift the other VEGAS values
             n_cri = np.shape(session.VEGAS_CRVAL1)[0]
             for cri in range(n_cri):
                 vegas_dict[4]['data']['CRVAL1'][cri] = float(vegas_dict[4]['data']['CRVAL1'][cri] + f_offset_i)
