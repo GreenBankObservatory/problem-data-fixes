@@ -56,19 +56,21 @@ def calc_vframe(gbt, *args):
     t = Time(t_mjd, format='mjd', scale='utc')                                                                      # [3.1]
     source_sph = SkyCoord(RA, Dec, frame='icrs', unit='deg')                                                        # [3.2]
     source_cart = source_sph.icrs.represent_as(UnitSphericalRepresentation).represent_as(CartesianRepresentation)   # [3.3]
-    
+    source_cart = np.array([-sc.xyz for sc in source_cart]).T
+
     indx_bar = veldef.str.endswith('BAR')
     indx_hel = veldef.str.endswith('HEL')
     indx_lsr = veldef.str.endswith('LSR')
     indx_top = veldef.str.endswith('TOP')
     frame_vels = pd.Series(np.ones(len(t_mjd)) * 1E50)
-    print("FRAME VELS: ", frame_vels)
+
     # [3.4] BARYCENTRIC
     if sum(indx_bar) > 0:
         epos, evel = get_body_barycentric_posvel('earth', t[indx_bar])           # [3.4.1]
         gbt_pos, gbt_vel = gbt.get_gcrs_posvel(t[indx_bar])                      # [3.4.2]
-        bvel_bg = (evel + gbt_vel) * 1000 / (24*60*60) * u.d * u.m / u.s / u.km  # [3.4.3]
-        frame_vels[indx_bar] = bvel_bg.dot(-source_cart)                         # [3.4.4]
+        bvel_bg = (evel + gbt_vel) * 1000 / (24*60*60)  # [3.4.3]
+        bvel_bg = np.array([(bi * u.d * u.m / u.s / u.km).xyz for bi in bvel_bg])
+        frame_vels[indx_bar] = np.matmul(bvel_bg, source_cart)                         # [3.4.4]
 
     # [3.5] HELIOCENTRIC
     if sum(indx_hel) > 0:
@@ -79,13 +81,13 @@ def calc_vframe(gbt, *args):
         epos, evel = get_body_barycentric_posvel('earth', t[indx_lsr])                                                                  # [3.6.1]
         gbt_pos, gbt_vel = gbt.get_gcrs_posvel(t[indx_lsr])                                                                             # [3.6.1]
         lsrk_pos = SkyCoord(ra="18:00:00", dec="+30:00:00", unit=(u.hourangle, u.deg), frame='icrs', radial_velocity=20*u.km/u.s, equinox="J1900")       # [3.6.2]
-        bvel_bg = (evel + gbt_vel + lsrk_pos.velocity) *1000 / (24*60*60) * u.d * u.m / u.s / u.km                                      # [3.6.3]
-        frame_vels[indx_lsr] = bvel_bg.dot(-source_cart)                                                                                # [3.6.4]
+        bvel_bg = np.add(np.add(evel, gbt_vel), lsrk_pos.velocity) *1000 / (24*60*60)                                  # [3.6.3]
+        bvel_bg = np.array([(bi * u.d * u.m / u.s / u.km).xyz for bi in bvel_bg])
+        frame_vels[indx_lsr] = np.matmul(bvel_bg, source_cart)                                                                                # [3.6.4]
 
     # TOPOCENTRIC (to verify that these don't get values changed if passed)
     if sum(indx_top) > 0:
         frame_vels[indx_top] = np.zeros(len(indx_top))
-
     return frame_vels
 
 def calc_lo1freq(*args):
@@ -132,6 +134,8 @@ def calc_f_offset(*args):
             the new LO1FREQ
         lo_mult : int
             the LOMULT
+        lo_offset : int
+            the LOOFFSET
         iffreq : float
             the IFFREQ
         sideband : str
@@ -145,10 +149,10 @@ def calc_f_offset(*args):
             the difference between the new and original sky frequencies
     '''
     # Sanitize the arguments
-    lo1_freq_og, lo1_freq_new, lo_mult, iffreq, sideband = sanitize_inputs(*args)
+    lo1_freq_og, lo1_freq_new, lo_mult, lo_offset, iffreq, sideband = sanitize_inputs(*args)
 
-    f_sky_og = lo2sky(lo1_freq_og, lo_mult, iffreq, sideband)
-    f_sky_new = lo2sky(lo1_freq_new, lo_mult, iffreq, sideband)
+    f_sky_og = lo2sky(lo1_freq_og, lo_mult, lo_offset, iffreq, sideband)
+    f_sky_new = lo2sky(lo1_freq_new, lo_mult, lo_offset, iffreq, sideband)
     d_f_sky = np.subtract(f_sky_new, f_sky_og)
     return f_sky_new, d_f_sky
 

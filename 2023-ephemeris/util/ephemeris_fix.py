@@ -78,6 +78,7 @@ def make_vegas_dict(session, t_now):
         4:{
             'data':{
                 'CRVAL1':session.VEGAS_CRVAL1,
+                'CDELT1':session.VEGAS_CDELT1,
                 }
             }, 
         6:{
@@ -130,17 +131,18 @@ def main_fix(progress, task_id, loadpath, savepath, session_name):
             vframe_i = calc_vframe(gbt, session.DMJD, session.RA, session.DEC, session.GO_VELDEF)
             lo1a_dict[3]['data']['VFRAME'] = vframe_i
             # [4] Calculate the new RVSYS values
-            rvsys_i = calc_rvsys(session.LO1_S_VEL, vframe_i, session.GO_VELDEF)
+            rvsys_i = calc_rvsys(session.LO1_VFRAME, vframe_i, session.LO1_RVSYS)
             lo1a_dict[3]['data']['RVSYS'] = rvsys_i
             # [5] Calculate the new LO1 frequencies
             lo1freq_i = calc_lo1freq(session.LO1_RESTFRQ, rvsys_i, session.LO1_LOMULT, session.LO1_LOOFFSET, session.LO1_IFFREQ, session.LO1_SIDEBAND)
             lo1a_dict[3]['data']['LO1FREQ'] = lo1freq_i
             # [6] Calculate a frequency offset (F_OFFSET) from VFRAME
-            f_sky_i, f_offset_i = calc_f_offset(session.LO1_LO1FREQ, lo1freq_i, session.LO1_LOMULT, session.LO1_IFFREQ, session.LO1_SIDEBAND)
+            f_sky_i, f_offset_i = calc_f_offset(session.LO1_LO1FREQ, lo1freq_i, session.LO1_LOMULT, session.LO1_LOOFFSET, session.LO1_IFFREQ, session.LO1_SIDEBAND)
             # [7] Calculate a channel shift from the frequency offset
             channel_shift_i = calc_channel_offset(f_offset_i, session.VEGAS_CDELT1, session.LO1_SIDEBAND)
             # [8] Shift the rows of data in the VEGAS FITS files by their channel offsets
-            vegas_dict[6]['data']['data'] = shift(vegas_dict[6]['data']['data'], [0,0,channel_shift_i], cval=np.NaN)
+            for csi in range(len(channel_shift_i)):
+                vegas_dict[6]['data']['data'][csi] = shift(vegas_dict[6]['data']['data'][csi], [0,0,channel_shift_i[csi]], cval=np.NaN)
             # [9] Write the DMJD, RA, and DEC values in the row of the LO1TBL
             lo1a_dict[3]['data']['DMJD'] = session.DMJD
             lo1a_dict[3]['data']['RA'] = session.RA
@@ -151,14 +153,13 @@ def main_fix(progress, task_id, loadpath, savepath, session_name):
             # [10] Shift the other VEGAS values
             n_cri = np.shape(session.VEGAS_CRVAL1)[0]
             for cri in range(n_cri):
-                vegas_dict[4]['data']['CRVAL1'][cri] = float(vegas_dict[4]['data']['CRVAL1'][cri] + f_offset_i)
+                vegas_dict[4]['data']['CRVAL1'][cri] = float(vegas_dict[4]['data']['CRVAL1'][cri] + f_offset_i[cri])
                 vegas_dict[1]['data']['SPURCHAN'][cri] = int((cri*session.VEGAS_ADCSAMPF/64-vegas_dict[4]['data']['CRVAL1'][cri])/session.VEGAS_CDELT1[cri]+session.VEGAS_CRPIX1)
-                vegas_dict[1]['data']['SPURFREQ'][cri] = float(vegas_dict[1]['data']['SPURFREQ'][cri]+f_offset_i)
+                vegas_dict[1]['data']['SPURFREQ'][cri] = float(vegas_dict[1]['data']['SPURFREQ'][cri]+f_offset_i[cri])
             
             for vk in list(vegas_dict[0]['hdr']):
-                print(vk)
                 if vk.startswith('SUB'):
-                    vegas_dict[0]['hdr'][vk] = float(vegas_dict[0]['hdr'][vk]+f_offset_i)
+                    vegas_dict[0]['hdr'][vk] = float(vegas_dict[0]['hdr'][vk]+f_offset_i[0])
             progress.update(task_id, advance=1)
 
             # Writing the new VEGAS files

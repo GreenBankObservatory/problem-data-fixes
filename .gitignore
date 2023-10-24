@@ -1,6 +1,7 @@
 # Custom
-2023-ephemeris/tests/local-data/
-2023-ephemeris/util/__pycache__/
+2023-ephemeris/tests/local-data
+2023-ephemeris/util/__pycache__
+2023-ephemeris/ephem-env-3.11
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

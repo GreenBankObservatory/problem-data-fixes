@@ -1,5 +1,5 @@
 import os, glob, multiprocessing
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from getpass import getuser
 
 from rich import print as rprint
@@ -130,16 +130,22 @@ def run_fix(loadpath, savepath, sessions_to_fix):
     print('\n')
     with progress_bar:
         overall_progress = progress_bar.add_task(f"[green]Ephemeris Fix Progress:")
+        sessions_to_fix = sorted(sessions_to_fix)
         fix_processes = []
-        executor = ThreadPoolExecutor(thread_count)
-        for session in sorted(sessions_to_fix):
+        task_ids = []
+        for session in sessions_to_fix:
             task_id = progress_bar.add_task(f"[cyan]{session}", start=False, transient=True)
-            future = executor.submit(main_fix, progress_bar, task_id, loadpath, savepath, session)
-            fix_processes.append(future)
-            if future.result is not None:
-                print(future.result())
-        while (n_finished := sum([fp.done() for fp in fix_processes])) < len(fix_processes):
-            progress_bar.update(overall_progress, completed=n_finished, total=len(fix_processes))
+            task_ids.append(task_id)
+        done_count = 0
+        done_total = len(sessions_to_fix)
+        with ThreadPoolExecutor(thread_count) as executor:
+            for out in as_completed([executor.submit(main_fix, progress_bar, task_id, loadpath, savepath, session) 
+                                     for session, task_id in zip(sessions_to_fix, task_ids)]):
+                result = out.result()
+                if result is not None:
+                    print(result)
+                done_count += 1
+                progress_bar.update(overall_progress, completed=done_count, total=done_total)
 
 if __name__ == "__main__":
     Messages.hello()

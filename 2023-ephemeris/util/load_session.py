@@ -35,7 +35,7 @@ class GBTSession:
         self.VEGAS_BW = data[0].header['BASE_BW']                # Overall bandwidth (MHz)
 
         # HDU 6 (DATA)
-        self.DMJD = data[6].data['DMJD']                   # DMJD of integration   | dim: (n, )
+        self.DMJD = list(data[6].data['DMJD'])                   # DMJD of integration   | dim: (n, )
         self.VEGAS_DATA = data[6].data['DATA']             # Counts                | dim: (n, SAMPLER, ACT_STATE, n_chan)
         self.VEGAS_NROWS = len(self.DMJD)
 
@@ -44,9 +44,9 @@ class GBTSession:
         self.VEGAS_SPURFREQ = data[1].data['SPURFREQ']           # Frequency of spur (Hz)
 
         # HDU 4 (SAMPLER)
-        self.VEGAS_CRPIX1 = data[4].header['CRPIX1']             # Index of reference freq's channel
-        self.VEGAS_CRVAL1 = data[4].data['CRVAL1']               # Channel center frequencies
-        self.VEGAS_CDELT1 = pd.Series([data[4].data['CDELT1'] for i in range(len(self.DMJD)) ])       # Channel bandwidths
+        self.VEGAS_CRPIX1 = data[4].header['CRPIX1']            # Index of reference freq's channel
+        self.VEGAS_CRVAL1 = pd.Series([data[4].data['CRVAL1'][0] for i in range(len(self.DMJD)) ])               # Channel center frequencies
+        self.VEGAS_CDELT1 = pd.Series([data[4].data['CDELT1'][0] for i in range(len(self.DMJD)) ])       # Channel bandwidths
 
         # CLOSE FILE
         data.close()
@@ -104,8 +104,8 @@ class GBTSession:
 
         f_RA = interp1d(ANT_DMJD, ANT_RA, kind='linear')
         f_DEC = interp1d(ANT_DMJD, ANT_DEC, kind='linear')
-        self.RA = pd.Series(f_RA(self.DMJD))
-        self.DEC = pd.Series(f_DEC(self.DMJD))
+        self.RA = list(f_RA(self.DMJD))
+        self.DEC = list(f_DEC(self.DMJD))
 
         # CLOSE FILE
         data.close()
