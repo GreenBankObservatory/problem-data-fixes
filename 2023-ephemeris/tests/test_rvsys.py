@@ -3,20 +3,22 @@ import numpy as np
 from util.core import *
 
 def read_data():
-    true_values = pd.read_csv("/home/sandboxes/vcatlett/repos/github/problem-data-fixes/2023-ephemeris/tests/local-data/true_values.csv")
+    true_values = pd.read_csv("/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/testing/pytest_data/true_values.csv")
     return true_values
 
 def get_rvsys_error_frame(veldef):
+    lock = None
     data = read_data()
     indx = data['VELDEF'].str.endswith(veldef)
-    rvsys = calc_rvsys(data['VFRAME'][indx], data['VFRAME'][indx], data['RVSYS'][indx])
+    rvsys = calc_rvsys(lock, data['VFRAME'][indx], data['VFRAME'][indx], data['RVSYS'][indx])
     rvsys_err = np.abs(np.subtract(data['RVSYS'][indx].values, rvsys))
     return np.max(rvsys_err)
 
 def get_rvsys_error_fdef(fdef):
+    lock = None
     data = read_data()
     indx = data['VELDEF'].str.startswith(fdef)
-    rvsys = calc_rvsys(data['VFRAME'][indx], data['VFRAME'][indx], data['RVSYS'][indx])
+    rvsys = calc_rvsys(lock, data['VFRAME'][indx], data['VFRAME'][indx], data['RVSYS'][indx])
     rvsys_err = np.abs(np.subtract(data['RVSYS'][indx].values, rvsys))
     return np.max(rvsys_err)
     

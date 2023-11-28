@@ -8,7 +8,8 @@ def read_data(sideband, veldef_start):
     return true_values
 
 def calc_lo1freqs(data):
-    lo1freqs = calc_lo1freq(data['RESTFREQ'], data['RVSYS'], data['LOMULT'], data['LOOFFSET'], data['IFFREQ'], data['SIDEBAND'])
+    lock = None
+    lo1freqs = calc_lo1freq(lock, data['RESTFREQ'], data['RVSYS'], data['LOMULT'], data['LOOFFSET'], data['IFFREQ'], data['SIDEBAND'])
     return lo1freqs
 
 def calc_lo1_diffs(lo1_og, lo1_calc):
@@ -16,9 +17,10 @@ def calc_lo1_diffs(lo1_og, lo1_calc):
     return diffs
 
 def test_lo2sky2lo():
-    data = pd.read_csv("/home/sandboxes/vcatlett/repos/github/problem-data-fixes/2023-ephemeris/tests/local-data/true_values.csv")
-    skyfreqs = lo2sky(data['LO1FREQ'], data['LOMULT'], data['LOOFFSET'], data['IFFREQ'],  data['SIDEBAND'])
-    lo1freqs = sky2lo(skyfreqs, data['LOMULT'], data['LOOFFSET'], data['IFFREQ'], data['SIDEBAND'])
+    lock = None
+    data = pd.read_csv("/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/testing/pytest_data/true_values.csv")
+    skyfreqs = lo2sky(lock, data['LO1FREQ'], data['LOMULT'], data['LOOFFSET'], data['IFFREQ'],  data['SIDEBAND'])
+    lo1freqs = sky2lo(lock, skyfreqs, data['LOMULT'], data['LOOFFSET'], data['IFFREQ'], data['SIDEBAND'])
     diffs = calc_lo1_diffs(data['LO1FREQ'], lo1freqs)
     assert np.max(diffs) <= 0.0
 
@@ -53,6 +55,7 @@ def test_upper_opt():
     assert np.max(diffs) <= 150
 
 def test_upper_rel():
+    """ (No data matches this case) """
     # data = read_data('UPPER', 'VELO')
     # lo1freqs = calc_lo1freqs(data)
     # diffs = calc_lo1_diffs(data['LO1FREQ'], lo1freqs)

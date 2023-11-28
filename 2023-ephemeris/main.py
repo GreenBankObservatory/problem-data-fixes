@@ -16,6 +16,8 @@ from rich.progress import (
 from util.messages import Messages
 from util.ephemeris_fix import *
 
+import threading
+
 def get_paths():
     """ Get paths to find the data and save the results """
     loadpath = get_loadpath()
@@ -120,7 +122,8 @@ def make_progress_bar():
         BarColumn(),
         "[progress.percentage]{task.percentage:>3.0f}%",
         TimeElapsedColumn(),
-        refresh_per_second=1
+        refresh_per_second=1,
+        transient=True,
     )
     return progress_bar
 
@@ -130,22 +133,33 @@ def run_fix(loadpath, savepath, sessions_to_fix):
     print('\n')
     with progress_bar:
         overall_progress = progress_bar.add_task(f"[green]Ephemeris Fix Progress:")
+        total_steps_overall = 0
         sessions_to_fix = sorted(sessions_to_fix)
-        fix_processes = []
-        task_ids = []
-        for session in sessions_to_fix:
-            task_id = progress_bar.add_task(f"[cyan]{session}", start=False, transient=True)
-            task_ids.append(task_id)
-        done_count = 0
-        done_total = len(sessions_to_fix)
-        with ThreadPoolExecutor(thread_count) as executor:
-            for out in as_completed([executor.submit(main_fix, progress_bar, task_id, loadpath, savepath, session) 
-                                     for session, task_id in zip(sessions_to_fix, task_ids)]):
-                result = out.result()
-                if result is not None:
-                    print(result)
-                done_count += 1
-                progress_bar.update(overall_progress, completed=done_count, total=done_total)
+        sessions_to_fix.reverse()
+
+        if len(sessions_to_fix) > 0:
+            task_ids = []
+            for session in sessions_to_fix:
+                total_steps_session = calc_progress(loadpath, session)
+                total_steps_overall += total_steps_session
+                task_id = progress_bar.add_task(f"[cyan]{session}", start=False, transient=True, total=total_steps_session)
+                task_ids.append(task_id)
+            done_count = 0
+            done_total = len(sessions_to_fix)
+            progress_bar.update(overall_progress, total=total_steps_overall)
+
+            lock = threading.Lock()
+            with ThreadPoolExecutor(thread_count) as executor:
+                for out in as_completed([executor.submit(main_fix, lock, progress_bar, overall_progress, task_id, loadpath, savepath, session) 
+                                        for session, task_id in zip(sessions_to_fix, task_ids)]):
+                    result = out.result()
+                    if result is not None:
+                        print(result)
+                        print("SESSION WITH ERROR: ", session)
+                    done_count += 1
+                    progress_bar.update(overall_progress, completed=done_count, total=done_total)
+        else:
+            print("Sorry, I could not find data matching the information provided.")
 
 if __name__ == "__main__":
     Messages.hello()

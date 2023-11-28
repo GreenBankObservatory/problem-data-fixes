@@ -3,12 +3,32 @@ import pandas as pd
 import astropy.constants as const
 import astropy.units as u
 from astropy.time import Time
-from astropy.coordinates import EarthLocation, SkyCoord, solar_system_ephemeris, get_body_barycentric_posvel, CartesianRepresentation, UnitSphericalRepresentation
+from astropy.coordinates import representation as r
+from astropy.coordinates import (
+    EarthLocation, 
+    SkyCoord, 
+    solar_system_ephemeris, 
+    get_body, 
+    get_body_barycentric_posvel, 
+    CartesianRepresentation, 
+    UnitSphericalRepresentation,
+    Galactic,
+    LSR,
+    ICRS
+    )
 
 # Use the JPL DE430 ephemeris 
 solar_system_ephemeris.set('jpl') 
 
-def create_obj_gbt():
+def icrs_to_lsr(icrs_coord, lsr_frame):
+    """ Taken directly from Astropy (couldn't import directly) """
+    v_bary_gal = Galactic(lsr_frame.v_bary.to_cartesian())
+    v_bary_icrs = v_bary_gal.transform_to(icrs_coord)
+    v_offset = v_bary_icrs.data.represent_as(r.CartesianDifferential)
+    offset = r.CartesianRepresentation([0, 0, 0] * u.au, differentials=v_offset)
+    return offset
+
+def create_obj_gbt(lock):
     '''
     Create an astropy EarthLocation for the GBT using the same values the regular system does
     Using values from page 3: https://www.gb.nrao.edu/GBT/MC/doc/dataproc/gbtLOFits/gbtLOFits.pdf
@@ -28,7 +48,7 @@ def create_obj_gbt():
     gbt         = EarthLocation.from_geodetic(lon=gbt_lon, lat=gbt_lat, height=gbt_height)
     return gbt
 
-def calc_vframe(gbt, *args):
+def calc_vframe(lock, gbt, *args):
     '''
     Calculate the VFRAME for a given integration
 
@@ -51,12 +71,12 @@ def calc_vframe(gbt, *args):
             the frame velocities (m/s) for each t_mjd
     '''
     # Sanitize the arguments
-    t_mjd, RA, Dec, veldef = sanitize_inputs(*args, sanitype='series')
+    t_mjd, RA, Dec, veldef = sanitize_inputs(lock, *args, sanitype='series')
 
     t = Time(t_mjd, format='mjd', scale='utc')                                                                      # [3.1]
     source_sph = SkyCoord(RA, Dec, frame='icrs', unit='deg')                                                        # [3.2]
     source_cart = source_sph.icrs.represent_as(UnitSphericalRepresentation).represent_as(CartesianRepresentation)   # [3.3]
-    source_cart = np.array([-sc.xyz for sc in source_cart]).T
+    source_cart = np.array([-sc.xyz for sc in source_cart])
 
     indx_bar = veldef.str.endswith('BAR')
     indx_hel = veldef.str.endswith('HEL')
@@ -68,29 +88,34 @@ def calc_vframe(gbt, *args):
     if sum(indx_bar) > 0:
         epos, evel = get_body_barycentric_posvel('earth', t[indx_bar])           # [3.4.1]
         gbt_pos, gbt_vel = gbt.get_gcrs_posvel(t[indx_bar])                      # [3.4.2]
-        bvel_bg = (evel + gbt_vel) * 1000 / (24*60*60)  # [3.4.3]
-        bvel_bg = np.array([(bi * u.d * u.m / u.s / u.km).xyz for bi in bvel_bg])
-        frame_vels[indx_bar] = np.matmul(bvel_bg, source_cart)                         # [3.4.4]
+        bvel_bg = (evel * u.d * 1000 / (u.km * 24*60*60)) + (gbt_vel * u.s / u.m )  # [3.4.3]
+        bvel_bg = np.array([bi.xyz for bi in bvel_bg])
+        epos = np.array([1000*(e / u.km).xyz for e in epos])
+        gbt_pos = np.array([(g / u.m).xyz for g in gbt_pos])               # [3.4.4]
+        frame_vels[indx_bar] = np.array([np.dot(bvel_bg[fvi, :], source_cart[fvi, :]) for fvi in range(sum(indx_bar))]) # [3.4.4]
 
     # [3.5] HELIOCENTRIC
     if sum(indx_hel) > 0:
-        frame_vels[indx_hel] = -source_sph.radial_velocity_correction('heliocentric', obstime=t[indx_hel], location=gbt) * 1000 / (24*60*60) * u.d * u.m / u.s / u.km # [3.5.4]
+        frame_vels_km_d = -source_sph.radial_velocity_correction('heliocentric', obstime=t[indx_hel], location=gbt) * u.d * u.m / u.s / u.km # [3.5.4]
+        frame_vels[indx_hel] = frame_vels_km_d.value * 1000 / (24*60*60)
 
     # [3.6] LSRK
     if sum(indx_lsr) > 0:
         epos, evel = get_body_barycentric_posvel('earth', t[indx_lsr])                                                                  # [3.6.1]
         gbt_pos, gbt_vel = gbt.get_gcrs_posvel(t[indx_lsr])                                                                             # [3.6.1]
         lsrk_pos = SkyCoord(ra="18:00:00", dec="+30:00:00", unit=(u.hourangle, u.deg), frame='icrs', radial_velocity=20*u.km/u.s, equinox="J1900")       # [3.6.2]
-        bvel_bg = np.add(np.add(evel, gbt_vel), lsrk_pos.velocity) *1000 / (24*60*60)                                  # [3.6.3]
-        bvel_bg = np.array([(bi * u.d * u.m / u.s / u.km).xyz for bi in bvel_bg])
-        frame_vels[indx_lsr] = np.matmul(bvel_bg, source_cart)                                                                                # [3.6.4]
+        bvel_bg_no_lsr = np.add((evel * u.d * 1000 / (u.km * 24*60*60)).xyz, (gbt_vel * u.s / u.m ).xyz).T
+        lsr_vel_row = 1000 * (lsrk_pos.velocity * u.s / u.km).d_xyz.value
+        lsr_vel = [lsr_vel_row for li in range(len(bvel_bg_no_lsr))]
+        bvel_bg = np.add(bvel_bg_no_lsr, lsr_vel)                                                                                      # [3.6.3]
+        frame_vels[indx_lsr] = np.array([np.dot(bvel_bg[fvi, :], source_cart[fvi, :]) for fvi in range(sum(indx_lsr))])                # [3.6.4]
 
     # TOPOCENTRIC (to verify that these don't get values changed if passed)
     if sum(indx_top) > 0:
         frame_vels[indx_top] = np.zeros(len(indx_top))
     return frame_vels
 
-def calc_lo1freq(*args):
+def calc_lo1freq(lock, *args):
     '''
     Calculate the LO1FREQ
 
@@ -115,14 +140,14 @@ def calc_lo1freq(*args):
             the LO1FREQ
     '''
     # Sanitize the arguments
-    f0, rvsys, lomult, looffset, iffreq, sideband = sanitize_inputs(*args)
+    f0, rvsys, lomult, looffset, iffreq, sideband = sanitize_inputs(lock, *args)
     # Get the sky frequency corresponding to RVSYS
-    sky_freq = v2f(f0, rvsys)
+    sky_freq = v2f(lock, f0, rvsys)
     # Turn the sky frequency into an LO1FREQ
-    lo1freq = sky2lo(sky_freq, lomult, looffset, iffreq, sideband)
+    lo1freq = sky2lo(lock, sky_freq, lomult, looffset, iffreq, sideband)
     return lo1freq
 
-def calc_f_offset(*args):
+def calc_f_offset(lock, *args):
     '''
     Compute the final Doppler shift of the data
 
@@ -149,14 +174,14 @@ def calc_f_offset(*args):
             the difference between the new and original sky frequencies
     '''
     # Sanitize the arguments
-    lo1_freq_og, lo1_freq_new, lo_mult, lo_offset, iffreq, sideband = sanitize_inputs(*args)
+    lo1_freq_og, lo1_freq_new, lo_mult, lo_offset, iffreq, sideband = sanitize_inputs(lock, *args)
 
-    f_sky_og = lo2sky(lo1_freq_og, lo_mult, lo_offset, iffreq, sideband)
-    f_sky_new = lo2sky(lo1_freq_new, lo_mult, lo_offset, iffreq, sideband)
+    f_sky_og = lo2sky(lock, lo1_freq_og, lo_mult, lo_offset, iffreq, sideband)
+    f_sky_new = lo2sky(lock, lo1_freq_new, lo_mult, lo_offset, iffreq, sideband)
     d_f_sky = np.subtract(f_sky_new, f_sky_og)
     return f_sky_new, d_f_sky
 
-def calc_channel_offset(*args):
+def calc_channel_offset(lock, *args):
     '''
     Compute the final Doppler shift of the data
 
@@ -175,7 +200,7 @@ def calc_channel_offset(*args):
             the number of VEGAS channels to shift by, rounded to the nearest integer
     '''
     # Sanitize the arguments
-    f_offset, channel_bw, sideband = sanitize_inputs(*args)
+    f_offset, channel_bw, sideband = sanitize_inputs(lock, *args)
 
     indx_lsb = sideband == "LOWER"
     indx_usb = sideband == "UPPER"
@@ -186,7 +211,7 @@ def calc_channel_offset(*args):
         channel_offset[indx_usb] = np.rint(np.divide(np.array(f_offset[indx_usb]), np.array(channel_bw[indx_usb])))
     return channel_offset
 
-def sky2lo(*args):
+def sky2lo(lock, *args):
     '''
     Convert a sky frequency to an LO1FREQ
 
@@ -209,7 +234,7 @@ def sky2lo(*args):
             the LO1 frequency corresponding to the sky frequency
     '''
     # Sanitize the arguments
-    f_sky, lomult, looffset, iffreq, sideband = sanitize_inputs(*args)
+    f_sky, lomult, looffset, iffreq, sideband = sanitize_inputs(lock, *args)
 
     indx_lsb = sideband == "LOWER"
     indx_usb = sideband == "UPPER"
@@ -220,7 +245,7 @@ def sky2lo(*args):
         lo1freq[indx_usb] = np.subtract(np.divide(np.subtract(f_sky[indx_usb], iffreq[indx_usb]), lomult[indx_usb]), looffset[indx_usb])
     return lo1freq
 
-def lo2sky(*args):
+def lo2sky(lock, *args):
     '''
     Convert an LO1FREQ to a sky frequency
 
@@ -243,7 +268,7 @@ def lo2sky(*args):
             the sky frequency
     '''
     # Sanitize the arguments
-    lo1freq, lomult, looffset, iffreq, sideband = sanitize_inputs(*args)
+    lo1freq, lomult, looffset, iffreq, sideband = sanitize_inputs(lock, *args)
 
     indx_lsb = sideband == "LOWER"
     indx_usb = sideband == "UPPER"
@@ -252,7 +277,7 @@ def lo2sky(*args):
     f_sky[indx_usb] = np.add(np.multiply(np.add(lo1freq[indx_usb], looffset[indx_usb]), lomult[indx_usb]), iffreq[indx_usb])
     return f_sky
 
-def calc_rvsys(*args):
+def calc_rvsys(lock, *args):
     '''
     Calculate the relativistic velocity of the source (RVSYS)
     See page 6: https://www.gb.nrao.edu/GBT/MC/doc/dataproc/gbtLOFits/gbtLOFits.pdf
@@ -272,14 +297,14 @@ def calc_rvsys(*args):
             The RVSYS value (m/s)
     '''
     # Sanitize the arguments
-    vframe_old, vframe_new, rvsys_og = sanitize_inputs(*args)
+    vframe_old, vframe_new, rvsys_og = sanitize_inputs(lock, *args)
     # Get the original source velocity
-    v_source = add_relativistic_velocities(rvsys_og, -vframe_old)
+    v_source = add_relativistic_velocities(lock, rvsys_og, -vframe_old)
     # Add the velocities together
-    rvsys = add_relativistic_velocities(v_source, vframe_new)
+    rvsys = add_relativistic_velocities(lock, v_source, vframe_new)
     return rvsys
 
-def add_relativistic_velocities(*args):
+def add_relativistic_velocities(lock, *args):
     '''
     Adds two relativistic velocities together using the velocity-addition formula
     .. math:: \frac{v_{1} + v_{2}}{1 + \frac{v_{1}v_{2}}{c^2}}
@@ -297,14 +322,14 @@ def add_relativistic_velocities(*args):
             The combined velocity (m/s)
     '''
     # Sanitize the arguments
-    v1, v2 = sanitize_inputs(*args)
+    v1, v2 = sanitize_inputs(lock, *args)
     c = const.c.value
     num = np.add(v1, v2)
     denom = np.add(1, np.multiply(v1, v2)/(c**2))
     v_total = np.divide(num, denom)
     return v_total
 
-def v2f(*args):
+def v2f(lock, *args):
     '''
     Calculate the frequency corresponding to a relativistic Doppler shift
 
@@ -321,14 +346,14 @@ def v2f(*args):
             The Doppler-shifted value of f0 (Hz)
     '''
     # Sanitize the arguments
-    f0, v = sanitize_inputs(*args)
+    f0, v = sanitize_inputs(lock, *args)
 
     f_num = np.subtract(1, np.divide(v,const.c.value))
     f_denom = np.add(1, np.divide(v,const.c.value))
     f = np.multiply(np.sqrt(np.divide(f_num, f_denom)), pd.Series(f0))
     return f
 
-def sanitize_inputs(*args, sanitype='values'):
+def sanitize_inputs(lock, *args, sanitype='values'):
     '''
     Sanitizes inputs to make sure they're the right ty
 
