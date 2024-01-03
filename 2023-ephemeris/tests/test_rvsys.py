@@ -10,7 +10,7 @@ def get_rvsys_error_frame(veldef):
     lock = None
     data = read_data()
     indx = data['VELDEF'].str.endswith(veldef)
-    rvsys = calc_rvsys(lock, data['VFRAME'][indx], data['VFRAME'][indx], data['RVSYS'][indx])
+    rvsys = calc_rvsys(lock, data['VFRAME'][indx], data['VFRAME'][indx], data['RVSYS'][indx], "PSWITCHON")
     rvsys_err = np.abs(np.subtract(data['RVSYS'][indx].values, rvsys))
     return np.max(rvsys_err)
 
@@ -18,7 +18,7 @@ def get_rvsys_error_fdef(fdef):
     lock = None
     data = read_data()
     indx = data['VELDEF'].str.startswith(fdef)
-    rvsys = calc_rvsys(lock, data['VFRAME'][indx], data['VFRAME'][indx], data['RVSYS'][indx])
+    rvsys = calc_rvsys(lock, data['VFRAME'][indx], data['VFRAME'][indx], data['RVSYS'][indx], "PSWITCHON")
     rvsys_err = np.abs(np.subtract(data['RVSYS'][indx].values, rvsys))
     return np.max(rvsys_err)
     

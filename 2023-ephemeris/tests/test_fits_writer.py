@@ -6,6 +6,8 @@ import os
 def test_fits_writer():
     """ Check that a FITS file can be opened, edited, and saved to a new file without changes to the original file """
 
+    lock = None
+
     original_fits = open_original_fits("/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/testing/pytest_data/sample_LO1A.fits")
 
     hdr0_dict = {     
@@ -24,7 +26,7 @@ def test_fits_writer():
 
     original_fits = write_hdr(original_fits, 0, hdr0_dict)
     original_fits = write_tbl(original_fits, 3, data3_dict, n_rows=4)
-    write_file(original_fits, '/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/testing/pytest_data/new_LO1A.fits')
+    write_file(lock, original_fits, '/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/testing/pytest_data/new_LO1A.fits')
     original_fits.close()
 
     new_fits = fits.open('/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/testing/pytest_data/new_LO1A.fits')

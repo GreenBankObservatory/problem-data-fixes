@@ -40,9 +40,9 @@ def test_vframe_heliocentric():
     assert helio_err <= 0.05
 
 def test_vframe_LSR():
-    """ Check that max LSR VFRAME error is <= 300 m/s """
+    """ Check that max LSR VFRAME error is <= 0.05 m/s """
     lsrk_err = get_vframe_error('LSR')
-    assert lsrk_err <= 300
+    assert lsrk_err <= 0.05
 
 def test_vframe_topocentric():
     """ Check that max topocentric VFRAME error is = 0.0 """

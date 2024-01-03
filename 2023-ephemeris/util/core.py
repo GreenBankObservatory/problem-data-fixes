@@ -84,35 +84,41 @@ def calc_vframe(lock, gbt, *args):
     indx_top = veldef.str.endswith('TOP')
     frame_vels = pd.Series(np.ones(len(t_mjd)) * 1E50)
 
-    # [3.4] BARYCENTRIC
-    if sum(indx_bar) > 0:
-        epos, evel = get_body_barycentric_posvel('earth', t[indx_bar])           # [3.4.1]
-        gbt_pos, gbt_vel = gbt.get_gcrs_posvel(t[indx_bar])                      # [3.4.2]
-        bvel_bg = (evel * u.d * 1000 / (u.km * 24*60*60)) + (gbt_vel * u.s / u.m )  # [3.4.3]
-        bvel_bg = np.array([bi.xyz for bi in bvel_bg])
-        epos = np.array([1000*(e / u.km).xyz for e in epos])
-        gbt_pos = np.array([(g / u.m).xyz for g in gbt_pos])               # [3.4.4]
-        frame_vels[indx_bar] = np.array([np.dot(bvel_bg[fvi, :], source_cart[fvi, :]) for fvi in range(sum(indx_bar))]) # [3.4.4]
+    try: 
+        # [3.4] BARYCENTRIC
+        if sum(indx_bar) > 0:
+            epos, evel = get_body_barycentric_posvel('earth', t[indx_bar])           # [3.4.1]
+            gbt_pos, gbt_vel = gbt.get_gcrs_posvel(t[indx_bar])                      # [3.4.2]
+            bvel_bg = (evel * u.d * 1000 / (u.km * 24*60*60)) + (gbt_vel * u.s / u.m )  # [3.4.3]
+            bvel_bg = np.array([bi.xyz for bi in bvel_bg])
+            epos = np.array([1000*(e / u.km).xyz for e in epos])
+            gbt_pos = np.array([(g / u.m).xyz for g in gbt_pos])               # [3.4.4]
+            frame_vels[indx_bar] = np.array([np.dot(bvel_bg[fvi, :], source_cart[fvi, :]) for fvi in range(sum(indx_bar))]) # [3.4.4]
 
-    # [3.5] HELIOCENTRIC
-    if sum(indx_hel) > 0:
-        frame_vels_km_d = -source_sph.radial_velocity_correction('heliocentric', obstime=t[indx_hel], location=gbt) * u.d * u.m / u.s / u.km # [3.5.4]
-        frame_vels[indx_hel] = frame_vels_km_d.value * 1000 / (24*60*60)
+        # [3.5] HELIOCENTRIC
+        if sum(indx_hel) > 0:
+            frame_vels_km_d = -source_sph.radial_velocity_correction('heliocentric', obstime=t[indx_hel], location=gbt) * u.d * u.m / u.s / u.km # [3.5.4]
+            frame_vels[indx_hel] = frame_vels_km_d.value * 1000 / (24*60*60)
 
-    # [3.6] LSRK
-    if sum(indx_lsr) > 0:
-        epos, evel = get_body_barycentric_posvel('earth', t[indx_lsr])                                                                  # [3.6.1]
-        gbt_pos, gbt_vel = gbt.get_gcrs_posvel(t[indx_lsr])                                                                             # [3.6.1]
-        lsrk_pos = SkyCoord(ra="18:00:00", dec="+30:00:00", unit=(u.hourangle, u.deg), frame='icrs', radial_velocity=20*u.km/u.s, equinox="J1900")       # [3.6.2]
-        bvel_bg_no_lsr = np.add((evel * u.d * 1000 / (u.km * 24*60*60)).xyz, (gbt_vel * u.s / u.m ).xyz).T
-        lsr_vel_row = 1000 * (lsrk_pos.velocity * u.s / u.km).d_xyz.value
-        lsr_vel = [lsr_vel_row for li in range(len(bvel_bg_no_lsr))]
-        bvel_bg = np.add(bvel_bg_no_lsr, lsr_vel)                                                                                      # [3.6.3]
-        frame_vels[indx_lsr] = np.array([np.dot(bvel_bg[fvi, :], source_cart[fvi, :]) for fvi in range(sum(indx_lsr))])                # [3.6.4]
+        # [3.6] LSRK
+        if sum(indx_lsr) > 0:
+            epos, evel = get_body_barycentric_posvel('earth', t[indx_lsr])                                                                  # [3.6.1]
+            gbt_pos, gbt_vel = gbt.get_gcrs_posvel(t[indx_lsr])                                                                             # [3.6.1]
+            #lsrk_pos = SkyCoord(ra="18:00:00", dec="+30:00:00", unit=(u.hourangle, u.deg), frame='icrs', radial_velocity=20*u.km/u.s, equinox="J1900")       # [3.6.2]
+            lsrk_pos = SkyCoord(ra="18:03:50.24", dec="+30:00:16.8", unit=(u.hourangle, u.deg), frame='icrs', radial_velocity=20*u.km/u.s)  # [3.6.2]
+            bvel_bg_no_lsr = np.add((evel * u.d * 1000 / (u.km * 24*60*60)).xyz, (gbt_vel * u.s / u.m ).xyz).T
+            lsr_vel_row = 1000 * (lsrk_pos.velocity * u.s / u.km).d_xyz.value
+            lsr_vel = [lsr_vel_row for li in range(len(bvel_bg_no_lsr))]
+            bvel_bg = np.add(bvel_bg_no_lsr, lsr_vel)                                                                                      # [3.6.3]
+            frame_vels[indx_lsr] = np.array([np.dot(bvel_bg[fvi, :], source_cart[fvi, :]) for fvi in range(sum(indx_lsr))])                # [3.6.4]
 
-    # TOPOCENTRIC (to verify that these don't get values changed if passed)
-    if sum(indx_top) > 0:
-        frame_vels[indx_top] = np.zeros(len(indx_top))
+        # TOPOCENTRIC (to verify that these don't get values changed if passed)
+        if sum(indx_top) > 0:
+            frame_vels[indx_top] = np.zeros(len(indx_top))
+    except Exception as error:
+        with lock:
+            print("An exception occurred:", error)
+
     return frame_vels
 
 def calc_lo1freq(lock, *args):
@@ -174,12 +180,24 @@ def calc_f_offset(lock, *args):
             the difference between the new and original sky frequencies
     '''
     # Sanitize the arguments
-    lo1_freq_og, lo1_freq_new, lo_mult, lo_offset, iffreq, sideband = sanitize_inputs(lock, *args)
+    lo1_freq_og, lo1_freq_new, lo_mult, lo_offset, iffreq, sideband, chan_bw = sanitize_inputs(lock, *args)
 
     f_sky_og = lo2sky(lock, lo1_freq_og, lo_mult, lo_offset, iffreq, sideband)
     f_sky_new = lo2sky(lock, lo1_freq_new, lo_mult, lo_offset, iffreq, sideband)
-    d_f_sky = np.subtract(f_sky_new, f_sky_og)
-    return f_sky_new, d_f_sky
+    d_f_sky = np.subtract(f_sky_og, f_sky_new)
+    d_f_sky_rounded = round_to_bw(lock, d_f_sky, chan_bw)
+    return f_sky_new, d_f_sky_rounded
+
+def round_to_bw(lock, fs, bw):
+    """ Round to the nearest half channel bandwidth """
+    mult, remainder = np.divmod(fs, bw)
+    indx_remainder = remainder >= bw/2
+    fs_rounded = np.multiply(mult, bw)
+    if sum(indx_remainder) > 0:
+        fs_rounded[indx_remainder] = np.add(fs_rounded[indx_remainder], bw[indx_remainder]/2)
+    #with lock:
+    #    print(indx_remainder[0], mult[0], remainder[0], fs[0], bw[0], fs_rounded[0], fs_rounded[0]/bw[0])
+    return fs_rounded
 
 def calc_channel_offset(lock, *args):
     '''

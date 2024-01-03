@@ -28,7 +28,7 @@ def get_paths():
 
 def get_loadpath():
     """ Get path to find the data """
-    loadpath_default = "/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/original"
+    loadpath_default = "/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/testing/test_sessions/original"
     loadpath = Prompt.ask(f"Where can I find the files?", default = loadpath_default)
     loadpath_exists = check_path(loadpath)
     if loadpath_exists:
@@ -40,15 +40,7 @@ def get_loadpath():
 
 def get_savepath():
     """ Get path to save the results """
-    USERNAME = getuser()
-    if USERNAME == "vcatlett":
-        savepath_default = "/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/modified"
-    else:
-        savepath_temp = f"/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/testing/{USERNAME}"
-        if os.path.exists(savepath_temp):
-            savepath_default = savepath_temp
-        else:
-            savepath_default = "."
+    savepath_default = "/stor/scratch/vcatlett/problem-data-temp/2023-ephemeris/testing/test_sessions/modified"
     savepath = Prompt.ask("Where should I save the results?", default = savepath_default)
     savepath_exists = check_path(savepath)
     if savepath_exists:
@@ -135,7 +127,6 @@ def run_fix(loadpath, savepath, sessions_to_fix):
         overall_progress = progress_bar.add_task(f"[green]Ephemeris Fix Progress:")
         total_steps_overall = 0
         sessions_to_fix = sorted(sessions_to_fix)
-        #sessions_to_fix.reverse()
 
         if len(sessions_to_fix) > 0:
             task_ids = []
